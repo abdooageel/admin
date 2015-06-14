@@ -1,0 +1,56 @@
+extends layout
+block content
+  .container.showIn.out.animated
+    .row#row
+      .col-xs-8.col-xs-offset-2.col-sm-6.col-sm-offset-3.col-md-4.col-md-offset-4
+        a(href="/adminLogin")
+          img.img-responsive(src="../../../img/nagaLogo1.png")
+        h4#h4
+          i.glyphicon.glyphicon-user
+          |     Admin Access
+        #form-olvidado
+          form#loginForm(role='form',action="/loginAdmin", method="post")
+            fieldset
+              .form-group
+                .input-group
+                  span.input-group-addon @
+                  input.form-control(placeholder='Email', name='username', type='email', autofocus='')
+              .form-group
+                .input-group
+                  span.input-group-addon
+                    i.glyphicon.glyphicon-lock
+                  input.form-control.pwd(placeholder='Password', name='password', type='password')
+                  span.input-group-btn
+                    button.btn.btn-default.reveal(type='button')
+                      i.glyphicon.glyphicon-eye-open
+              .form-group
+                button#btnLogin.btn.btn-block(type='submit') Log In
+                p.help-block
+                  a#olvidado.pull-right.text-muted(href='#')
+                    small Forgot your password ?     
+        #form-olvidado(style='display: none;')
+          h4(style='color:#F49B23;') Forgot your password? 
+          form#loginReset(role='form')
+            fieldset
+              span.help-block  Email address you use to log in to your account
+                br
+                |            We'll send you an email with instructions to choose a new password.
+              .form-group.input-group
+                span.input-group-addon @
+                input.form-control(placeholder='Email', name='email', type='email')
+              button#btn-olvidado.btn.btn-success.btn-block(type='submit') Reset Password
+              p.help-block
+                a#acceso.text-muted(href='#')
+                  small Admin Access
+  .showIn.out
+    .navbar-fixed-bottom#navbar-fixed-bottom
+      span.pull-right © 2015 Naga
+      a.pull-left(href="#" target="_blank",style='color:#F49B23;')
+        i.glyphicon.glyphicon-share-alt
+        |      Go to site home page.   
+  script(src='/js/jquery-1.11.2.min.js')
+  script(src='/js/bootstrap.min.js')
+  script(src="/js/jquery.validate.min.js")
+  script(src='/js/helpers.js')
+  script(src='/js/nprogress.js')
+  script(src='/js/adminLogin.js')

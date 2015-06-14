@@ -1,0 +1,76 @@
+html(lang='en')
+  head
+    link(href='/css/bootstrap.min.css', rel='stylesheet')
+    style(type='text/css').
+      .form-control{
+      background: transparent;
+      }
+      #go-right > div {
+      position: relative;
+      overflow: hidden;
+      }
+      #go-right input, #go-right textarea {
+      width: 100%;
+      border: 2px solid gray;
+      background: none;
+      position: relative;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      padding: 8px 12px;
+      outline: 0;
+      }
+      #go-right input:valid, #go-right textarea:valid {
+      background: white;
+      }
+      #go-right input:focus, #go-right textarea:focus {
+      border-color: #357EBD;
+      }
+      #go-right input:focus + label, #go-right textarea:focus + label {
+      background: #357EBD;
+      color: white;
+      font-size: 70%;
+      padding: 1px 6px;
+      z-index: 2;
+      text-transform: uppercase;
+      }
+      #go-right label {
+      -webkit-transition: background 0.2s, color 0.2s, top 0.2s, bottom 0.2s, right 0.2s, left 0.2s;
+      transition: background 0.2s, color 0.2s, top 0.2s, bottom 0.2s, right 0.2s, left 0.2s;
+      position: absolute;
+      color: #999;
+      padding: 7px 6px;
+      font-weight: normal;
+      }
+      #go-right textarea {
+      display: block;
+      resize: vertical;
+      }
+      #go-right.go-right label {
+      border-radius: 0 5px 5px 0;
+      height: 100%;
+      top: 0;
+      right: 100%;
+      width: 100%;
+      margin-right: -100%;
+      }
+      #go-right.go-right input:focus + label, #go-right.go-right textarea:focus + label {
+      right: 0;
+      margin-right: 0;
+      width: 40%;
+      padding-top: 5px;
+      }
+  body
+    .container
+      .row
+        form.col-md-9.go-right
+          #go-right.go-right
+            .form-group
+              input#name.form-control(name='name', type='text', required='')
+              label(for='name') Your Name
+            .form-group
+              input#phone.form-control(name='phone', type='tel', required='')
+              label(for='phone') Primary Phone
+            .form-group
+              textarea#message.form-control(name='phone', required='')
+              label(for='message') Message

@@ -1,0 +1,262 @@
+.breadcrumb-content{
+	margin:20px 0 0;
+	font-size:14px
+}
+
+.container-account{
+	width:944px;
+	margin-bottom:40px
+}
+
+.account-cancel-btn{
+	margin-left:15px
+}
+
+.recent-orders{
+	display:table;
+	width:100%;
+	padding:0 0 0 50px
+}
+
+.recent-orders .recent-orders-heading{
+	margin:36px 0 0;
+	line-height:24px
+}
+
+.recent-orders .orders-previous{
+	margin:48px 0 0;
+	float:right;
+	line-height:10px
+}
+
+.recent-orders .same-date-orders{
+	margin:24px 0;
+	border:solid 1px #d9d9d9;
+	border-radius:5px;
+	behavior:url(/static/misc/PIE.htc)
+}
+
+.recent-orders .orders-details-link{
+	margin:0 0 0 10px
+}
+
+.recent-orders .orders-details-link-ohg{
+	margin:24px 24px 0 15px
+}
+
+.recent-orders .orders-title{
+	height:50px;
+	padding:10px 24px;
+	border-radius:5px 5px 0 0;
+	background-color:#f2f8fd;
+	color:#79b9e7;
+	font-size:18px;
+	vertical-align:bottom
+}
+
+.recent-orders .orders-item-id{
+	margin:24px 24px 0 24px
+}
+
+.recent-orders .same-date-orders .separator,.recent-orders .orders-item{
+	margin:0 24px 24px
+}
+
+.recent-orders .brick{
+	border-top:0 none;
+	padding:30px 0 0
+}
+
+.recent-orders .brick .product-img{
+	height:60px;
+	width:60px
+}
+
+.recent-orders .brick .brick-heading{
+	color:#888;
+	font-size:12px
+}
+
+.recent-orders .brick-primary p{
+	margin:5px 0 0;
+	max-width:360px;
+	line-height:15px;
+	white-space:normal
+}
+
+.recent-orders .orders-item-heading{
+	margin:0 0 10px;
+	max-width:255px;
+	line-height:31px
+}
+
+.recent-orders .order-date-range{
+	display:inline;
+	clear:both;
+	color:#76c143
+}
+
+.recent-orders .infograph-container{
+	width:100%;
+	margin:0 8px 0 0;
+	float:right
+}
+
+.recent-orders .infograph-footprint.active .infograph-point{
+	border:3px solid #fff
+}
+
+.recent-orders .product-name{
+	color:#444;
+	cursor:pointer;
+	font-size:14px
+}
+
+.order-product-name{
+	margin:0 0 2px;
+	color:#222;
+	font-size:12px;
+	font-weight:600
+}
+
+.order-item-price-info{
+	display:table;
+	padding:2px 0;
+	font-size:14px;
+	font-weight:400;
+	line-height:18px
+}
+
+.order-bundle-cancel-status{
+	font-size:14px;
+	color:#f47421
+}
+
+.order-item-bundle-info{
+	font-size:14px;
+	font-weight:600;
+	color:#007dc6;
+	outline:0
+}
+
+.order-bundle-container{
+	width:auto;
+	font-size:14px
+}
+
+.order-bundle-items{
+	max-width:720px;
+	display:inline-block;
+	zoom:1;
+}
+
+.order-bundle-product-tile{
+	display:inline-block;
+	zoom:1;
+	;
+	width:16%;
+	min-width:120px;
+	padding:15px 0 0;
+	margin-right:-4px;
+	vertical-align:top
+}
+
+.order-bundle-flyout-product-tile{
+	display:inline-block;
+	zoom:1;
+	;
+	width:110px;
+	padding:2px;
+	vertical-align:top
+}
+
+.order-bundle-flyout-autowide{
+	position:static;
+	width:auto;
+	max-width:610px;
+	margin-left:-65px
+}
+
+.order-flyout-autowide{
+	position:absolute
+}
+
+.order-bundle-img{
+	display:block;
+	margin:0 auto 10px
+}
+
+.order-bundle-product-title{
+	max-width:118px;
+	padding:0 15px;
+	color:#444;
+	font-size:14px;
+	line-height:16px;
+	word-wrap:break-word
+}
+
+.bundle-comp-name{
+	position:relative
+}
+
+.bundle-comp-name.truncated .truncate-disclosure-arrow,.bundle-comp-name.expanded .truncate-disclosure-arrow{
+	position:absolute;
+	right:0;
+	bottom:0;
+	cursor:pointer
+}
+
+.bundle-comp-name.truncated .truncate-disclosure-arrow:before,.bundle-comp-name.expanded .truncate-disclosure-arrow:before{
+	-moz-osx-font-smoothing:grayscale;
+	-webkit-font-smoothing:antialiased;
+	font-family:WalmartIcons;
+	font-style:normal;
+	font-weight:400;
+	text-align:center;
+	content:"\e037";
+	color:#007dc6;
+	font-size:12px
+}
+
+.bundle-comp-name.truncated .truncate-disclosure-arrow:before{
+	content:"\e036"
+}
+
+.canceled-order-item .product-image.product-img,.returned-order-item .product-image.product-img{
+	filter:alpha(Opacity=60);
+	opacity:.6
+}
+
+.canceled-order-item .product-name,.returned-order-item .product-name,.canceled-order-item .order-item-quantity,.returned-order-item .order-item-quantity{
+	color:#888
+}
+
+.recent-order-sub-heading{
+	margin:30px 0 25px;
+	font-size:20px
+}
+
+.dashboard-icons{
+	margin:0 15px 0 0
+}
+
+.dashboard-truck-icons{
+	padding:0 10px 0 0
+}
+
+.recent-order-navs{
+	padding:0 0 20px;
+	font-size:20px
+}
+
+.no-tracking-available{
+	line-height:1.2;
+	font-weight:600
+}
+
+.no-tracking-available-ohg{
+	padding-top:5px;
+	line-height:1.15;
+	color:#222;
+	font-size:14px
+}

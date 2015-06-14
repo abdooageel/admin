@@ -1,0 +1,106 @@
+extends layout
+block Dashboard
+  #page-wrapper
+    .container-fluid
+      // Page Heading
+      .row
+        .col-lg-12
+          h1  Product Manger
+            small  Colors
+          ol.breadcrumb
+            li
+              i.fa.fa-dashboard
+              a(href='/adminPage')  Dashboard
+            li.active
+              i.fa  Colors
+      .panel.panel-default
+        .panel-heading
+          .row
+            .col-md-3
+              h2.panel-title 
+                strong  List of Colors
+            .col-md-5
+              form(role='search')
+                .input-group
+                  input.form-control(type='text', placeholder='Search by name')
+                  .input-group-btn
+                    button.btn.btn-default(type='submit')
+                      i.glyphicon.glyphicon-search
+            .col-md-2 
+              a.btn.btn-success(href='#newColors', role='button',data-toggle='modal')
+                span.glyphicon.glyphicon-plus
+                |  Add Colors
+            .col-md-2  
+        .table-responsive
+          table.table.table-striped.table-condensed
+            thead
+              tr
+                td.text-center
+                  strong Name in Arabic
+                td.text-center
+                  strong Name in English  
+                td.text-center
+                  strong Edit  
+                td.text-center
+                  strong Trash 
+            tbody#colorTable
+              for i in color
+                tr(data-id='#{i.idcolor}')
+                  td.text-center 
+                     a.editable.editable-click(id='name#{i.idcolor}', href='#', data-type='text', data-pk='#{i.idcolor}') #{i.name}  
+                  td.text-center
+                    a.editable.editable-click(id='name_en#{i.idcolor}', href='#', data-type='text', data-pk='#{i.idcolor}') #{i.name_en}  
+                  td.text-center
+                    button#enable.btn.btn-info.btn-xs(value='#{i.idcolor}' ,data-title='Edit', data-toggle='modal')
+                      span.glyphicon.glyphicon-pencil     
+                  td.text-center
+                    button#delete.btn.btn-danger.btn-xs(href='#ded', data-toggle='modal',value='#{i.idcolor}')
+                      span.glyphicon.glyphicon-trash   
+                      
+        #ded.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
+          .modal-dialog
+            .modal-content
+              .modal-headr.modal-header-danger
+                p.h1#colorsid Sure you want to delete?
+              .modal-body
+                p.h2 Are you sure
+                p 
+              .modal-footer
+                button#deletee.btn.btn-danger(type='button',data-dismiss='modal') Delete
+                button.btn.btn-success(data-dismiss='modal', type='button') Cancel
+    #newColors.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
+       .modal-dialog
+        .modal-content
+          .modal-headr.modal-header-success
+            button.close(type="button", data-dismiss="modal" aria-label="Close")
+              span(aria-hidden="true") × 
+            h2
+              .glyphicon.glyphicon-plus
+              |  Add Colors
+          .row 
+            .modal-body
+              form#formColors.form-signin(role="form")
+                .col-xs-5.col-xs-offset-1.col-md-5.col-md-offset-1
+                  .form-group
+                    .h4 Name in Arabic
+                    input#name.form-control(type="text", name="name", placeholder="Name in Arabic",autofocus="")
+                .col-xs-5.col-md-5
+                  .form-group      
+                    .h4 Name in English
+                    input#name_en.form-control(type="text", name="name_en", placeholder="Name in English",autofocus="")
+          .modal-footer
+            button.btn.btn-danger(data-dismiss='modal', type='button') Cancel
+            button#save.btn.btn-primary() Save Change 
+  script(src='/js/jquery-1.11.2.min.js')
+  script(src='/js/bootstrap.min.js')
+  script(src="/js/jquery.validate.min.js")
+  script(src='/js/bootstrap-notify.min.js')
+  script(src='/js/editColor.js')
+  script(src='/js/bootstrap-editable.min.js')
+  script(src='/metisMenu/dist/metisMenu.min.js')
+  script(src='/js/nprogress.js')
+  script(src='/js/sb-admin-2.js')
+  script(src='/js/helpers.js')  
+  script(src='/js/adminColor.js')
+  
+  

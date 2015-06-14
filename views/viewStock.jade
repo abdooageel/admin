@@ -1,0 +1,130 @@
+extends layout
+block Dashboard
+  #page-wrapper
+    .container-fluid
+      // Page Heading
+      .row
+        h1 Product Manger
+          small  stock
+        ol.breadcrumb
+          li
+            i.fa.fa-dashboard
+            a(href='/adminPage')  Dashboard
+          li.active
+            i.glyphicon.glyphicon-map-marker  
+            |  Product Manger
+          li.active
+            i.fa  stock 
+        .panel.panel-default.filterable
+          .panel-heading
+            .row
+              .col-xs-3.col-md-2
+                h3.panel-title#title
+                  strong List of Measure
+              .pull-right
+                button#space.btn.btn-primary.btn-filter
+                  i.glyphicon.glyphicon-filter
+                  |  Filter of Search
+                a#space.btn.btn-success(href='#newstock', role='button',data-toggle='modal')
+                  i.glyphicon.glyphicon-plus
+                  |  Add Measure
+                button#space.btn.btn.btn-info
+                  i.glyphicon.glyphicon-print
+                  |  Print
+          .table-responsive
+            table.table.table-striped.table-condensed
+              thead.filters
+                tr
+                  th
+                    //- strong Name in Arabic
+                    input.form-control.text-center(type='text', name='name', placeholder='Name in Arabic', disabled='')
+                  th
+                    //- strong Name in English
+                    input.form-control.text-center(type='text', name='address', placeholder='address', disabled='')
+                  th
+                    //- strong Name in English
+                    input.form-control.text-center(type='text', name='phone', placeholder='phone', disabled='')
+                  th.text-center
+                    strong View
+                  th.text-center
+                    | Edit  
+                  th.text-center
+                    | Trash 
+                tbody#StockTable
+                  for o in stock
+                    tr(data-id='#{o.idstock}')
+                      td.text-center
+                        a.editable.editable-click(id='name#{o.idstock}', href='#', data-type='text', data-pk='#{o.idstock}') #{o.name}
+                      td.text-center
+                        a.editable.editable-click(id='address#{o.idstock}', href='#', data-type='text', data-pk='#{o.idstock}') #{o.address} 
+                      td.text-center
+                        a.editable.editable-click(id='phone#{o.idstock}', href='#', data-type='text', data-pk='#{o.idstock}') #{o.phone} 
+                      td.text-center
+                        button#view.btn.btn-primary.btn-xs(value='#{o.idstock}' ,data-title='Edit', data-toggle='modal')
+                          span.glyphicon.glyphicon-eye-open
+                      td.text-center
+                        button#enable.btn.btn-info.btn-xs(value='#{o.idstock}' ,data-title='Edit', data-toggle='modal')
+                          span.glyphicon.glyphicon-pencil     
+                      td.text-center 
+                        button#delete.btn.btn-danger.btn-xs(href='#del', data-toggle='modal' value='#{o.idstock}')
+                          span.glyphicon.glyphicon-trash  
+        if pagination 
+          div.text-center
+            ul.pagination
+              li(class='#{pagination.previous.disabled}')
+                a(href='?p=#{pagination.previous.n}') Previous
+              for page in pagination.pages
+                li(class="#{page.active}")
+                  a(href='?p=#{page.n}') #{page.n}
+              li(class="#{pagination.next.disabled}")
+                a(href='?p=#{pagination.next.n}') Next        
+        #del.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
+          .modal-dialog
+            .modal-content
+              .modal-headr.modal-header-danger
+                p.h1 Sure you want to delete?
+              .modal-body
+                p.h2 Are you sure
+                p 
+              .modal-footer
+                button#dell.btn.btn-danger(type='button',data-dismiss='modal') Delete
+                button.btn.btn-success(data-dismiss='modal', type='button') Cancel
+        #newstock.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
+          form#formStock.form-signin(role="form", name="formMeasure")
+            .modal-dialog
+              .modal-content
+                .modal-headr.modal-header-success
+                  button.close(type="button", data-dismiss="modal" aria-label="Close")
+                    span(aria-hidden="true") × 
+                  h2
+                    .glyphicon.glyphicon-plus
+                    |  Add Stock
+                .modal-body
+                  .row
+                    .col-xs-5.col-xs-offset-1.col-md-5.col-md-offset-1
+                      .form-group
+                        .h4 Name
+                        input#name.form-control(type="text", name="name", placeholder="Name",autofocus="")
+                    .col-xs-5.col-md-5
+                      .form-group      
+                        .h4 address
+                        input#address.form-control(type="text", name="address", placeholder="address",autofocus="")
+                  .row
+                    .col-xs-5.col-xs-offset-1.col-md-5.col-md-offset-1
+                      .form-group
+                        .h4 phone  
+                        input#phone.form-control(type="text", name="phone", placeholder="×××-×××-××××",autofocus="")
+                .modal-footer
+                  button.btn.btn-danger(data-dismiss='modal', type='button') Cancel
+                  button#save.btn.btn-primary() Save Change
+  script(src='/js/jquery-1.11.2.min.js')
+  script(src='/js/bootstrap.min.js')
+  script(src='/js/bootstrap-notify.min.js')
+  script(src='/js/viewStck.js')
+  script(src='/js/jquery.validate.min.js')
+  script(src='/metisMenu/dist/metisMenu.min.js')
+  script(src='/js/sb-admin-2.js')
+  script(src='/js/bootstrap-editable.min.js')
+  script(src='/js/helpers.js')
+  script(src='/js/EditStock.js') 
+  script(src='/js/searchFilter.js') 

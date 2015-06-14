@@ -1,0 +1,296 @@
+#row {
+  padding-top: 100px; 
+}
+
+#search {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-transform: translate(0px, -100%) scale(0, 0);
+  -moz-transform: translate(0px, -100%) scale(0, 0);
+  -o-transform: translate(0px, -100%) scale(0, 0);
+  -ms-transform: translate(0px, -100%) scale(0, 0);
+  transform: translate(0px, -100%) scale(0, 0);
+  opacity: 0;
+}
+
+#search.open {
+  -webkit-transform: translate(0px, 0px) scale(1, 1);
+  -moz-transform: translate(0px, 0px) scale(1, 1);
+  -o-transform: translate(0px, 0px) scale(1, 1);
+  -ms-transform: translate(0px, 0px) scale(1, 1);
+  transform: translate(0px, 0px) scale(1, 1); 
+  opacity: 1;
+  z-index: 9999;
+}
+
+#search input[type="search"] {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  color: rgb(255, 255, 255);
+  background: rgba(0, 0, 0, 0);
+  font-size: 40px;
+  font-weight: 300;
+  text-align: center;
+  border: 0px;
+  margin: 0px auto;
+  margin-top: -51px;
+  padding-left: 30px;
+  padding-right: 30px;
+  outline: none;
+}
+
+#search .btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: 61px;
+  margin-left: -45px;
+}
+
+#search .close {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  color: #fff;
+  background-color: #428bca;
+  border-color: #357ebd;
+  opacity: 1;
+  padding: 10px 17px;
+  font-size: 27px;
+}
+
+.help-block {
+  display: block;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  color: red;
+}
+
+.error {
+  display: block;
+  color: red;
+}
+
+#space {
+  margin-right: 10px;
+}
+
+ul.pagination { 
+  margin-top:-10px;
+}
+
+#title {
+  margin-top: 8px;
+}
+
+.loadingImg {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: url(/img/loader-128x/Preloader_2.gif) center no-repeat #fff;
+}
+
+.showIn {
+  transition: all 300ms linear 700ms;
+  opacity: 1;
+}
+
+.showIn.out {
+  opacity: 0;
+}
+
+#btnLogin {
+  background-color:#F49B23;
+}
+
+#h4{
+  border-bottom: 1px solid #c5c5c5; 
+  color:#F49B23;
+}
+
+#navbar-fixed-bottom {
+  padding-left: 20px;
+  padding-right: 20px; 
+  color:#F49B23;
+}
+.user-row {
+  margin-bottom: 14px;
+}
+
+.user-row:last-child {
+  margin-bottom: 0;
+}
+
+.dropdown-user {
+  margin: 13px 0;
+  padding: 5px;
+  height: 100%;
+}
+
+.dropdown-user:hover {
+  cursor: pointer;
+}
+
+.table-user-information > tbody > tr {
+  border-top: 1px solid rgb(221, 221, 221);
+}
+
+.table-user-information > tbody > tr:first-child {
+  border-top: 0;
+}
+
+
+.table-user-information > tbody > tr > td {
+  border-top: 0;
+}
+
+#toTop{
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  cursor: pointer;
+  display: none;
+}
+
+.tile-progress {
+  background-color: #303641;
+  color: #fff;
+}
+.tile-progress {
+  background: #00a65b;
+  color: #fff;
+  margin-bottom: 20px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+.tile-progress .tile-header {
+  padding: 15px 20px;
+  padding-bottom: 40px;
+}
+.tile-progress .tile-progressbar {
+  height: 2px;
+  background: rgba(0,0,0,0.18);
+  margin: 0;
+}
+.tile-progress .tile-progressbar span {
+  background: #fff;
+}
+.tile-progress .tile-progressbar span {
+  display: block;
+  background: #fff;
+  width: 0;
+  height: 100%;
+  -webkit-transition: all 1.5s cubic-bezier(0.230,1.000,0.320,1.000);
+  -moz-transition: all 1.5s cubic-bezier(0.230,1.000,0.320,1.000);
+  -o-transition: all 1.5s cubic-bezier(0.230,1.000,0.320,1.000);
+  transition: all 1.5s cubic-bezier(0.230,1.000,0.320,1.000);
+}
+.tile-progress .tile-footer {
+  padding: 20px;
+  text-align: right;
+  background: rgba(0,0,0,0.1);
+  -webkit-border-radius: 0 0 3px 3px;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 0 0 3px 3px;
+  -moz-background-clip: padding;
+  border-radius: 0 0 3px 3px;
+  background-clip: padding-box;
+  -webkit-border-radius: 0 0 3px 3px;
+  -moz-border-radius: 0 0 3px 3px;
+  border-radius: 0 0 3px 3px;
+}
+.tile-progress.tile-red {
+  background-color: #f56954;
+  color: #fff;
+}
+.tile-progress {
+  background-color: #303641;
+  color: #fff;
+}
+.tile-progress.tile-blue {
+  background-color: #0073b7;
+  color: #fff;
+}
+.tile-progress.tile-aqua {
+  background-color: #00c0ef;
+  color: #fff;
+}
+.tile-progress.tile-green {
+  background-color: #00a65a;
+  color: #fff;
+}
+.tile-progress.tile-cyan {
+  background-color: #00b29e;
+  color: #fff;
+}
+.tile-progress.tile-purple {
+  background-color: #ba79cb;
+  color: #fff;
+}
+.tile-progress.tile-pink {
+  background-color: #ec3b83;
+  color: #fff;
+}
+.modal-header-success {
+  color:#fff;
+  padding:9px 15px;
+  border-bottom:1px solid #eee;
+  background-color: #5cb85c;
+  -webkit-border-top-left-radius: 5px;
+  -webkit-border-top-right-radius: 5px;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-topright: 5px;
+   border-top-left-radius: 5px;
+   border-top-right-radius: 5px;
+}
+.modal-header-danger {
+  color:#fff;
+  padding:9px 15px;
+  border-bottom:1px solid #eee;
+  background-color: #d9534f;
+  -webkit-border-top-left-radius: 5px;
+  -webkit-border-top-right-radius: 5px;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-topright: 5px;
+   border-top-left-radius: 5px;
+   border-top-right-radius: 5px;
+}
+
+/*Table Serach Style*/
+.filterable .filters input[disabled] {
+  background-color: transparent;
+  border: none;
+  cursor: auto;
+  box-shadow: none;
+  padding: 0;
+  height: auto;
+}
+.filterable .filters input[disabled]::-webkit-input-placeholder {
+  color: #333;
+}
+.filterable .filters input[disabled]::-moz-placeholder {
+  color: #333;
+}
+.filterable .filters input[disabled]:-ms-input-placeholder {
+  color: #333;
+}

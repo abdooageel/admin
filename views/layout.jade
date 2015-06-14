@@ -1,0 +1,457 @@
+doctype html
+html(lang='en')
+  head
+    title= title
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    link(href="/css/bootstrap.min.css" rel="stylesheet")
+    link(href="/css/admin_style.css" rel="stylesheet")
+    link(href="/css/bootstrap-editable.css" rel="stylesheet")
+    //- MetisMenu CSS
+    link(href="/metisMenu/dist/metisMenu.min.css" rel="stylesheet")
+    //- Custom CSS
+    link(href="/css/sb-admin-2.css" rel="stylesheet")
+    //- Custom Fonts
+    link(href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css") 
+    //- NProgress CSS
+    link(href="/css/nprogress.css" rel="stylesheet")
+    link(href="/css/animate.min.css" rel="stylesheet")
+    link(href="/css/bootstrap-select.min.css" rel="stylesheet")
+    link(href="/css/bootstrap-switch.min.css" rel="stylesheet")
+    link(rel='stylesheet', href='/css/footer_style.css')
+  body.animated.fadeIn(style='display: none')
+    block content
+      block navigation
+        //- .loadingImg
+        //-(class="#{NProgress}")
+        #search
+          button.close(type='button') ×
+          form
+            input(type='search', value='', placeholder='type keyword(s) here')
+            button.btn.btn-primary(type='submit') Search  
+        #wrapper
+          nav.navbar.navbar-default.navbar-static-top(role="navigation" style="margin-bottom: 0")
+            .navbar-header
+              button.navbar-toggle(type="button", data-toggle="collapse", data-target=".navbar-collapse")
+                span.sr-only Toggle navigation
+                span.icon-bar
+                span.icon-bar
+                span.icon-bar
+              a.navbar-brand(href="/adminPage")
+                img(style='height:35px;margin-top:-7px;',src="../../img/nagaLogo1.png")
+            <!-- /.navbar-header -->
+            ul.nav.navbar-top-links.navbar-right
+              li.dropdown
+                a.dropdown-toggle(data-toggle='dropdown', href='#')
+                  i.fa.fa-envelope.fa-fw
+                  i.fa.fa-caret-down
+                ul.dropdown-menu.dropdown-messages
+                  li
+                    a(href='#')
+                      div
+                        strong John Smith
+                        span.pull-right.text-muted
+                          em Yesterday
+                      div
+                        | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...
+                  li.divider
+                  li
+                    a(href='#')
+                      div
+                        strong John Smith
+                        span.pull-right.text-muted
+                          em Yesterday
+                      div
+                        | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...
+                  li.divider
+                  li
+                    a(href='#')
+                      div
+                        strong John Smith
+                        span.pull-right.text-muted
+                          em Yesterday
+                      div
+                        | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...
+                  li.divider
+                  li
+                    a.text-center(href='#')
+                      strong Read All Messages
+                      i.fa.fa-angle-right
+              li.dropdown
+                a.dropdown-toggle(data-toggle='dropdown', href='#')
+                  i.fa.fa-tasks.fa-fw
+                  i.fa.fa-caret-down
+                ul.dropdown-menu.dropdown-tasks
+                  li
+                    a(href='#')
+                      div
+                        p
+                          strong Task 1
+                          span.pull-right.text-muted 40% Complete
+                        .progress.progress-striped.active
+                          .progress-bar.progress-bar-success(role='progressbar', aria-valuenow='40', aria-valuemin='0', aria-valuemax='100', style='width: 40%')
+                            span.sr-only 40% Complete (success)
+                  li.divider
+                  li
+                    a(href='#')
+                      div
+                        p
+                          strong Task 2
+                          span.pull-right.text-muted 20% Complete
+                        .progress.progress-striped.active
+                          .progress-bar.progress-bar-info(role='progressbar', aria-valuenow='20', aria-valuemin='0', aria-valuemax='100', style='width: 20%')
+                            span.sr-only 20% Complete
+                  li.divider
+                  li
+                    a(href='#')
+                      div
+                        p
+                          strong Task 3
+                          span.pull-right.text-muted 60% Complete
+                        .progress.progress-striped.active
+                          .progress-bar.progress-bar-warning(role='progressbar', aria-valuenow='60', aria-valuemin='0', aria-valuemax='100', style='width: 60%')
+                            span.sr-only 60% Complete (warning)
+                  li.divider
+                  li
+                    a(href='#')
+                      div
+                        p
+                          strong Task 4
+                          span.pull-right.text-muted 80% Complete
+                        .progress.progress-striped.active
+                          .progress-bar.progress-bar-danger(role='progressbar', aria-valuenow='80', aria-valuemin='0', aria-valuemax='100', style='width: 80%')
+                            span.sr-only 80% Complete (danger)
+                  li.divider
+                  li
+                    a.text-center(href='#')
+                      strong See All Tasks
+                      i.fa.fa-angle-right
+              li.dropdown
+                a.dropdown-toggle(data-toggle='dropdown', href='#')
+                  i.fa.fa-bell.fa-fw
+                  i.fa.fa-caret-down
+                ul.dropdown-menu.dropdown-alerts
+                  li
+                    a(href='#')
+                      div
+                        i.fa.fa-comment.fa-fw
+                        |  New Comment
+                        span.pull-right.text-muted.small 4 minutes ago
+                  li.divider
+                  li
+                    a(href='#')
+                      div
+                        i.fa.fa-twitter.fa-fw
+                        |  3 New Followers
+                        span.pull-right.text-muted.small 12 minutes ago
+                  li.divider
+                  li
+                    a(href='#')
+                      div
+                        i.fa.fa-envelope.fa-fw
+                        |  Message Sent
+                        span.pull-right.text-muted.small 4 minutes ago
+                  li.divider
+                  li
+                    a(href='#')
+                      div
+                        i.fa.fa-tasks.fa-fw
+                        |  New Task
+                        span.pull-right.text-muted.small 4 minutes ago
+                  li.divider
+                  li
+                    a(href='#')
+                      div
+                        i.fa.fa-upload.fa-fw
+                        |  Server Rebooted
+                        span.pull-right.text-muted.small 4 minutes ago
+                  li.divider
+                  li
+                    a.text-center(href='#')
+                      strong See All Alerts
+                      i.fa.fa-angle-right
+              li.dropdown
+                a.dropdown-toggle(data-toggle='dropdown', href='#')
+                  i.fa.fa-user.fa-fw
+                  i.fa.fa-caret-down
+                ul.dropdown-menu
+                  li
+                    a(href='#')
+                      i.fa.fa-user.fa-fw
+                      |  User Profile
+                  li
+                    a(href='#')
+                      i.fa.fa-gear.fa-fw
+                      |  Settings
+                  li.divider
+                  li
+                    a(href='/')
+                      i.fa.fa-sign-out.fa-fw
+                      |  Logout          
+            .navbar-default.sidebar#preview-container(role="navigation")
+              .sidebar-nav.navbar-collapse
+                ul.nav#side-menu
+
+                  li
+                    a(href="#search") 
+                      i.fa.fa-search  
+                      |  Search
+
+                  li
+                    a(href="/adminPage")
+                      i.fa.fa-dashboard.fa-fw
+                      |  Dashboard
+                  li
+                    a(href="#")
+                      i.fa.fa-user
+                      |  User Manger
+                      span.fa.arrow
+                    ul.nav.nav-second-level
+                      li
+                        a(href="/adminRegUsers") Register User
+                      li
+                        a(href="adminShowUsers") Show User 
+                  li
+                    a(href="#")
+                      i.glyphicon.glyphicon-map-marker
+                      |  Locations Manger
+                      span.fa.arrow
+                    ul.nav.nav-second-level
+                      li
+                        a(href="/address/adminCities") Cities
+                      li
+                        a(href="/address/adminAreas") Areas
+                      li
+                        a(href="/address/adminMahala") Mahala    
+                      li
+                        a(href="/address/adminSchools") Schools
+                  li
+                    a(href="#")
+                      i.glyphicon.glyphicon-gift
+                      |  Product Manger
+                      span.fa.arrow
+                    ul.nav.nav-second-level
+                      li
+                        a(href="/measure/adminMeasure") Measure
+                      li
+                        a(href="/measure/adminColors") Colors        
+                  li
+                    a(href="#")
+                      i.glyphicon.glyphicon-briefcase
+                      |  Business Manger
+                      span.fa.arrow
+                    ul.nav.nav-second-level
+                      li
+                        a(href="/typeBusiness/adminTypeBusiness") Type of Business 
+                  li
+                    a(href="#")
+                      i.fa.fa-user
+                      |  Admin Manger
+                      span.fa.arrow
+                    ul.nav.nav-second-level
+                      li
+                        a(href="/viewAdmin") View Admins
+                      li
+                        a(href="/addAdmin") Add Admin 
+                  li
+                    a(href="#")
+                      i.fa.fa-building-o 
+                      |  Company Manger
+                      span.fa.arrow
+                    ul.nav.nav-second-level
+                      li
+                        a(href="/Company/adminCompany") Company 
+
+                  li
+                    a(href="#")
+                      i.fa.fa-building-o 
+                      |  Stock Manger
+                      span.fa.arrow
+                    ul.nav.nav-second-level
+                      li
+                        a(href="/Stock") stock
+
+
+                  li
+                    a(href="/adminSerialNumber")
+                      i.glyphicon.glyphicon-check
+                      |  Prepaid Card Manger
+                  li
+                    a(href="#")
+                      i.fa.fa-cart-arrow-down
+                      |  Item Manger
+                      span.fa.arrow
+                    ul.nav.nav-second-level
+                      li
+                        a(href="/viewItem") View Items
+                      li
+                        a(href="/newItem") New Item 
+                  li
+                    a(href="#")
+                      i.fa.fa-user
+                       | Vendor Manger
+                      span.fa.arrow
+                    ul.nav.nav-second-level
+                      li
+                        a(href="/vendor") Vendor
+                          span.fa.arrow
+                  
+                      li
+                        a(href="/addPrepaidVendor") addPrepaidVendor
+                          span.fa.arrow             
+                  li
+                    a(href="#")
+                      i.fa.fa-sitemapfa-fw Third Level Item
+                      span.fa.arrow
+                    ul.nav.nav-second-level
+                      li
+                        a(href="#") Third Level Item
+                          span.fa.arrow
+                        ul.nav.nav-third-level
+                          li
+                            a(href="#") Third Level Item
+                              span.fa.arrow
+                            ul.nav.nav-fourth-level
+                              li
+                                a(href="#") Third Level Item
+                              li
+                                a(href="#") Third Level Item 
+          block Dashboard                                           
+
+      block footer
+        footer#footer
+          // Footer
+          .footer-top
+            .container
+              .row
+                .col-sm-2
+                  .companyinfo
+                    h2
+                      span e
+                      | -shopper
+                    p Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor
+                .col-sm-7
+                  .col-sm-3
+                    .video-gallery.text-center
+                      a(href='#')
+                        .iframe-img
+                          img(src='/img/iframe1.png', alt='')
+                        .overlay-icon
+                          i.fa.fa-play-circle-o
+                      p Circle of Hands
+                      h2 24 DEC 2014
+                  .col-sm-3
+                    .video-gallery.text-center
+                      a(href='#')
+                        .iframe-img
+                          img(src='/img/iframe2.png', alt='')
+                        .overlay-icon
+                          i.fa.fa-play-circle-o
+                      p Circle of Hands
+                      h2 24 DEC 2014
+                  .col-sm-3
+                    .video-gallery.text-center
+                      a(href='#')
+                        .iframe-img
+                          img(src='/img/iframe3.png', alt='')
+                        .overlay-icon
+                          i.fa.fa-play-circle-o
+                      p Circle of Hands
+                      h2 24 DEC 2014
+                  .col-sm-3
+                    .video-gallery.text-center
+                      a(href='#')
+                        .iframe-img
+                          img(src='/img/iframe4.png', alt='')
+                        .overlay-icon
+                          i.fa.fa-play-circle-o
+                      p Circle of Hands
+                      h2 24 DEC 2014
+                .col-sm-3
+                  .address
+                    img(src='/img/map.png', alt='')
+                    p 505 S Atlantic Ave Virginia Beach, VA(Virginia)
+          .footer-widget
+            .container
+              .row
+                .col-sm-2
+                  .single-widget
+                    h2 Service
+                    ul.nav.nav-pills.nav-stacked
+                      li
+                        a(href='') Online Help
+                      li
+                        a(href='') Contact Us
+                      li
+                        a(href='') Order Status
+                      li
+                        a(href='') Change Location
+                      li
+                        a(href='') FAQ’s
+                .col-md-2
+                  .single-widget
+                    h2 Quock Shop
+                    ul.nav.nav-pills.nav-stacked
+                      li
+                        a(href='') T-Shirt
+                      li
+                        a(href='') Mens
+                      li
+                        a(href='') Womens
+                      li
+                        a(href='') Gift Cards
+                      li
+                        a(href='') Shoes
+                .col-md-2
+                  .single-widget
+                    h2 Policies
+                    ul.nav.nav-pills.nav-stacked
+                      li
+                        a(href='') Terms of Use
+                      li
+                        a(href='') Privecy Policy
+                      li
+                        a(href='') Refund Policy
+                      li
+                        a(href='') Billing System
+                      li
+                        a(href='') Ticket System
+                .col-md-2
+                  .single-widget
+                    h2 About Shopper
+                    ul.nav.nav-pills.nav-stacked
+                      li
+                        a(href='') Company Information
+                      li
+                        a(href='') Careers
+                      li
+                        a(href='') Store Location
+                      li
+                        a(href='') Affillate Program
+                      li
+                        a(href='') Copyright
+                .col-md-3.col-md-offset-1
+                  .single-widget
+                    h2 About Shopper
+                    ul.nav.nav-pills.nav-stacked
+                      li
+                        a(href='') Company Information
+                      li
+                        a(href='') Careers
+                      li
+                        a(href='') Store Location
+                      li
+                        a(href='') Affillate Program
+                      li
+                        a(href='') Copyright
+          .footer-bottom
+            .container
+              .row
+                p.pull-left Copyright © 2015 Nagaaa. All rights reserved.
+                p.pull-right
+                  | Designed by 
+                  span
+                    a(target='_blank', href='http://www.naga.ly') Naga Co.

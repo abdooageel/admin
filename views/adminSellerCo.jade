@@ -1,0 +1,128 @@
+extends layout
+block Dashboard
+  #page-wrapper
+    .container-fluid
+      // Page Heading
+      .row
+        .col-lg-12
+          h1.page-header  Company Manger
+            small  Company Seller
+          ol.breadcrumb
+            li
+              i.fa.fa-dashboard
+              a(href='/adminPage')  Dashboard
+            li
+              i.fa
+              a(href='/adminCompany')  Company  
+            li.active
+              i.fa  Seller
+      .panel.panel-default
+            .panel-heading
+              .row
+                .col-md-3
+                  h2.panel-title 
+                    strong  List of Company Seller
+                .col-md-5
+                  form(role='search')
+                    .input-group
+                      input.form-control(type='text', placeholder='Search by name')
+                      .input-group-btn
+                        button.btn.btn-default(type='submit')
+                          i.glyphicon.glyphicon-search
+                .col-md-2 
+                  a.btn.btn-success(href='#newSeller', role='button',data-toggle='modal')
+                    span.glyphicon.glyphicon-plus
+                    |  Add Seller 
+                .col-md-2  
+            .panel-body
+              .table-responsive
+                table.table.table-condensed
+                  thead
+                    tr
+                      td
+                        strong First Name
+                      td
+                        strong Last Name
+                      td
+                        strong Email
+                      td
+                        strong password  
+                      td
+                        strong level
+                      td.text-right
+                        strong Edit
+                      td.text-right
+                        strong Trash     
+                  tbody
+                  for i in seller
+                    tr(data-id='#{i.idcompany_seller}')
+                      td
+                        a.editable.editable-click(id='first_name#{i.idcompany_seller}', href='#', data-type='text', data-pk='#{i.idcompany_seller}') #{i.first_name}
+                      td
+                        a.editable.editable-click(id='last_name#{i.idcompany_seller}', href='#', data-type='text', data-pk='#{i.idcompany_seller}') #{i.last_name}
+                      td
+                        a.editable.editable-click(id='email#{i.idcompany_seller}', href='#', data-type='text', data-pk='#{i.idcompany_seller}') #{i.email}
+                      td 
+                        a.editable.editable-click(id='password#{i.idcompany_seller}', href='#', data-type='text', data-pk='#{i.idcompany_seller}') #{i.password}
+                      td 
+                        a.editable.editable-click(id='level#{i.idcompany_seller}', href='#', data-type='text', data-pk='#{i.idcompany_seller}') #{i.level}
+                      td.text-right
+                        button#enable.btn.btn-info.btn-xs(value='#{i.idcompany_seller}' ,data-title='Edit', data-toggle='modal')
+                          span.glyphicon.glyphicon-pencil     
+                      td.text-right 
+                        button#delete.btn.btn-danger.btn-xs(value='#{i.idcompany_seller}',href='#del', data-toggle='modal')
+                          span.glyphicon.glyphicon-trash 
+          #del.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
+            .modal-dialog
+              .modal-content
+                .modal-headr.modal-header-danger
+                  p.h1 Sure you want to delete?
+                .modal-body
+                  p.h2 Are you sure
+                  p 
+                .modal-footer
+                  button#deletee.btn.btn-danger(type='button',data-dismiss='modal') Delete
+                  button.btn.btn-success(data-dismiss='modal', type='button') Cancel
+          #newSeller.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
+            .modal-dialog
+              .modal-content
+                .modal-headr.modal-header-success
+                  button.close(type="button", data-dismiss="modal" aria-label="Close")
+                    span(aria-hidden="true") ×
+                  h2
+                    .glyphicon.glyphicon-plus
+                    |  Add Company Seller
+                .row 
+                  .modal-body
+                    form#formSeller.form-signin(role="form" , action="", method="post")
+                      .col-xs-6.col-md-6
+                        .form-group
+                          .h4 First Name
+                          input#first_name.form-control(type="text",name="first_name", placeholder="First Name",autofocus="")
+                        .form-group
+                          .h4 Email
+                          input#email.form-control(type="text",name="email", placeholder="Email",autofocus="")    
+                        .form-group
+                          .h4 level
+                          select#level.form-control(type="text",name="level", placeholder="level",autofocus="")
+                            for i in [1,2,3,4,5]
+                              option(value="#{i}",data-subtext='#{i}') #{i}   
+                      .col-xs-6.col-md-6
+                        .form-group
+                          .h4 Last Name
+                          input#last_name.form-control(type="text",name="last_name", placeholder="Last Name",autofocus="")
+                        .form-group
+                          .h4 password
+                          input#password.form-control(type="text",name="password", placeholder="password",autofocus="")    
+                .modal-footer
+                  button.btn.btn-danger(data-dismiss='modal', type='button') Cancel
+                  button#save.btn.btn-primary() Save Change
+  script(src='/js/jquery-1.11.2.min.js')
+  script(src='/js/bootstrap.min.js') 
+  script(src='/metisMenu/dist/metisMenu.min.js')
+  script(src='/js/sb-admin-2.js')  
+  script(src="/js/jquery.validate.min.js")
+  script(src='/js/bootstrap-select.min.js')
+  script(src='/js/bootstrap-editable.min.js')     
+  script(src='/js/editCompanySeller.js')
+  script(src='/js/companySeller.js') 

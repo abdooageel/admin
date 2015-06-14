@@ -1,0 +1,176 @@
+extends layout
+block Dashboard
+  #page-wrapper
+    .container-fluid
+      // Page Heading
+      .row
+        h1  Locations Manger
+          small  Schools
+        ol.breadcrumb
+          li
+            i.fa.fa-dashboard
+            a(href='/adminPage')  Dashboard
+          li.active
+            i.fa  Schools
+        .panel.panel-default.filterable
+          .panel-heading
+            .row
+              .col-xs-3.col-md-2
+                h3.panel-title#title
+                  strong List of Schools
+              .pull-right
+                button#space.btn.btn-primary.btn-filter
+                  i.glyphicon.glyphicon-filter
+                  |  Filter of Search
+                a#space.btn.btn-success(href='#newschool', role='button',data-toggle='modal')
+                  i.glyphicon.glyphicon-plus
+                  |  Add School
+                button#space.btn.btn.btn-info
+                  i.glyphicon.glyphicon-print
+                  |  Print
+          .table-responsive
+            table.table.table-striped.table-condensed.table-hover
+              thead
+                tr.filters
+                  th.text-center
+                    //- strong Name in Arabic
+                    input.form-control.text-center(type='text', placeholder='Name in Arabic', disabled='')
+                  th.text-center
+                    //- strong Name in English
+                    input.form-control.text-center(type='text', placeholder='Name in English', disabled='')
+                  th.text-center
+                    //- strong City Name
+                    input.form-control.text-center(type='text', placeholder='City Name', disabled='')
+                  th.text-center
+                    //- strong Area Name
+                    input.form-control.text-center(type='text', placeholder='Area Name', disabled='')
+                  th.text-center
+                    //- strong Mahalla Name
+                    input.form-control.text-center(type='text', placeholder='Mahalla Name', disabled='')
+                  th.text-center
+                    //- strong Latitude Number
+                    input.form-control.text-center(type='text', placeholder='Latitude #', disabled='')
+                  th.text-center
+                    //- strong Longitude Number
+                    input.form-control.text-center(type='text', placeholder='Longitude #', disabled='')
+                  th.text-center
+                    | Edit
+                  th.text-center
+                    | Trash 
+              tfoot
+                tr
+                  th.text-center
+                    | Name in Arabic
+                  th.text-center
+                    | Name in English
+                  th.text-center
+                    | City Name
+                  th.text-center
+                    | Area Name
+                  th.text-center
+                    | Mahalla Name
+                  th.text-center
+                    | Latitude #
+                  th.text-center
+                    | Longitude #
+                  th.text-center
+                    | Edit
+                  th.text-center
+                    | Trash
+              tbody#tbody
+                for schools in school
+                  tr(data-id = '#{schools.idschool}')
+                    td.text-center 
+                      a.editable.editable-click(id='name#{schools.idschool}', href='#', data-type='text', data-pk='#{schools.idschool}')  #{schools.schoolName}
+                    td.text-center 
+                      a.editable.editable-click(id='name_en#{schools.idschool}', href='#', data-type='text', data-pk='#{schools.idschool}') #{schools.schoolName_en}
+                    td.text-center #{schools.cityName}
+                    td.text-center #{schools.areaName}
+                    td.text-center #{schools.mahallaName} 
+                    td.text-center 
+                      a.editable.editable-click(id='latit#{schools.idschool}', href='#', data-type='text', data-pk='#{schools.idschool}') #{schools.latitude}
+                    td.text-center 
+                      a.editable.editable-click(id='longit#{schools.idschool}', href='#', data-type='text', data-pk='#{schools.idschool}') #{schools.longitude}
+                    td.text-center
+                      button#enable.btn.btn-info.btn-xs(data-placement='top', title='Edit School')
+                        span.glyphicon.glyphicon-pencil
+                    td.text-center
+                      button#delete.btn.btn-danger.btn-xs(value='#{schools.idschool}',href='#del', data-toggle='modal', data-placement='top', title='Delete School')
+                        span.glyphicon.glyphicon-trash       
+        if pagination 
+          .text-center
+            ul.pagination
+              li(class='#{pagination.previous.disabled}')
+                a(href='?p=#{pagination.previous.n}') Previous
+              for page in pagination.pages
+                li(class="#{page.active}")
+                  a(href='?p=#{page.n}') #{page.n}
+              li(class="#{pagination.next.disabled}")
+                a(href='?p=#{pagination.next.n}') Next
+        #del.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
+          .modal-dialog
+            .modal-content
+              .modal-headr.modal-header-danger
+                p.h1#schoolid Sure you want to delete
+                
+              .modal-body
+                p.h2 Are you sure
+                
+              .modal-footer
+                button#deletee.btn.btn-danger(type='button',data-dismiss='modal') Delete
+                button.btn.btn-success(data-dismiss='modal', type='button') Cancel
+        #newschool.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
+          .modal-dialog
+            .modal-content
+              .modal-headr.modal-header-success
+                button.close(type="button", data-dismiss="modal" aria-label="Close")
+                  span(aria-hidden="true") × 
+                h2.modal-title
+                  .glyphicon.glyphicon-plus
+                  |  Add School
+              .modal-body
+                form#formSchool(role="form",name="formSchool")
+                  .row
+                    .col-xs-6.col-md-6
+                      .form-group
+                        .h4 Name in Arabic
+                        input#name.form-control(type="text",name="name", placeholder="Name in Arabic",autofocus="")
+                      .form-group
+                        .h4 Latitudes
+                        input#latitudes.form-control(type="text",name="latit", placeholder="Latitudes")    
+                      .form-group
+                        .h4 City
+                        select#city_idcity.form-control.selectpicker.show-tick(type="text",name="city_idcity",data-show-subtext='true',data-size='5',data-live-search='true')
+                          option(value="", style='color:grey; display:none;') Please Select City
+                          for city in cities
+                            option(value="#{city.idcity}",data-subtext='#{city.name_en}') #{city.name} 
+                    .col-xs-6.col-md-6
+                      .form-group
+                        .h4 Name in English
+                        input#name_en.form-control(type="text",name="name_en", placeholder="Name in English")
+                      .form-group
+                        .h4 Longitude
+                        input#longitude.form-control(type="text",name="longit", placeholder="Meridians")
+                      .form-group#Area
+                        .h4 Area
+                        select#area.form-control(type="text", name="area_idarea", autofocus="")
+                          option(value="", style='color:grey; display:none;') Please Select Area
+                    .col-xs-6.col-xs-offset-3.col-md-6.col-md-offset-3
+                      .form-group#Mahalla
+                        .h4 Mahalla
+                        select#mahalla.form-control(type="text",name="mahalla_idmahalla", placeholder="Name in English",data-show-subtext='true',data-size='5',data-live-search='true')
+                          option(value="", style='color:grey; display:none;') Please Select Mahalla
+              .modal-footer
+                button.btn.btn-danger(data-dismiss='modal', type='button') Cancel
+                button#save.btn.btn-primary() Save Change
+  script(src='/js/jquery-1.11.2.min.js')
+  script(src='/js/bootstrap.min.js')
+  script(src='/js/bootstrap-notify.min.js')
+  script(src='/metisMenu/dist/metisMenu.min.js')
+  script(src='/js/bootstrap-editable.min.js')
+  script(src="/js/jquery.validate.min.js")
+  script(src='/js/bootstrap-select.min.js')
+  script(src='/js/sb-admin-2.js')
+  script(src='/js/helpers.js')
+  script(src='/js/adminSchool.js')
+  script(src='/js/searchFilter.js')

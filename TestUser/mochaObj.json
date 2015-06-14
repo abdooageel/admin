@@ -1,0 +1,137 @@
+{
+  "city":{
+    "add_city": {"idcity":1000,"name":"الخمس","name_en":"Elkhoms", "status":1},
+    "update_city_name":{"value":"خمس","pk":1000},
+    "update_city_name_en":{"value":"Khoms","pk":1000},
+    "delete_city":1000
+
+  },
+
+  "color":{
+  	"add_color":{"idcolor":10000000,"name":"احمر","name_en":"red", "status":1},
+    "update_color_name":{"value":"ابيض","pk":10000000},
+    "update_color_name_en":{"value":"white","pk":10000000},
+    "delete_color":10000000
+  },
+  "admin":{
+    "add_admin":{"idadmin":10000000,"name":"المدير","email":"red@gmial.com", "password":"a4sdas56df4","salt":"oahnfaf4"},
+    "update_admin_name":{"value":"ابيض","pk":10000000},
+    "update_admin_email":{"value":"white","pk":10000000},
+    "update_admin_password":{"value":"102030","pk":10000000},
+    "update_admin_level":{"value":2,"pk":10000000},
+    "admin_email":{"email":"@gmin.com"},
+    "delete_admin":10000000
+  },
+  "company":{
+    "add_company": {"idcompany":10000000,"name":"ناقة","name_en":"naga", "logo":"1asf","admin_idadmin":10000000,"tob_idtob":10000000},
+    "update_company_name":{"value":"الناقة","pk":10000000},
+    "update_company_name_en":{"value":"alnaga","pk":10000000},
+    "update_company_logo":{"value":"alnaga","pk":10000000},
+    "update_company_level":{"value":2,"pk":10000000},
+    "update_company_admin":{"value":10000000,"pk":10000000},
+    "update_company_tob":{"value":10000000,"pk":10000000},
+    "delete_company":10000000
+  },
+  "tob":{
+    "add_tob": {"idtob":10000000,"name":"الخمس","name_en":"Elkhoms"},
+    "update_tob_name":{"value":"خمس","pk":10000000},
+    "update_tob_name_en":{"value":"Khoms","pk":10000000},
+    "delete_tob":10000000
+
+  },
+  
+  "Area":{
+    "add_city": {"idcity":1000,"name":"الخمس","name_en":"Elkhoms", "status":1},
+    "add_area": {"idarea":10,"name":"حي الاندلس","name_en":"hay elandalos","city_idcity":1000},
+    "Name_en":{"name_en":"hay elandalos"},
+    "update_name_ar":{"value":"عبدو","pk":10},
+    "update_name_en":{"value":"abdo","pk":10},
+    "delete_area":10,
+    "delete_city":1000
+  },
+  
+  "mahalla":{
+    "add_mahalla":{"idmahalla":100,"name":"بوسليم","name_en":"bosleem","area_idarea":10,"link":218},
+    "update_name_ar":{"value":"عبدو","pk":100},
+    "update_name_en":{"value":"abdo","pk":100}
+ },
+
+  "companyAddress":{
+    "addaddress":{"idcompany_address":10000000,"latit":"af4564","longit":"asddf5564","idcompany":10000000,"idschool":10000000},
+    "update_Address_latit":{"value":"gsfghsfh","pk":10000000},
+    "update_Address_longit":{"value":"sdg","pk":10000000},
+    "update_Address_default":{"value":0,"pk":10000000},
+    "update_Address_idcompany":{"value":10000000,"pk":10000000},
+    "update_Address_idschool":{"value":2,"pk":10000000},
+    "delete_Address":10000000
+  },
+  "seller":{
+    "add_seller":{"idcompany_seller":10000000,"first_name":"abdoo","last_name":"ageel","email":"red@gmial.com", "password":"a4sdas56df4","salt":"oahnfaf4","company_idcompany":10000000},
+    "update_seller_first":{"value":"abc","pk":10000000},
+    "update_seller_last":{"value":"def","pk":10000000},
+    "update_seller_email":{"value":"@google","pk":10000000},
+    "update_seller_password":{"value":"102030","pk":10000000},
+    "update_seller_level":{"value":2,"pk":10000000},
+    "update_seller_company":{"value":10000000,"pk":10000000},
+    "seller_email":{"email":"@gmin.com"},
+    "delete_seller":10000000
+  },
+  "customer":{
+    "add_customer":{"idcustomer":10000000,"first_name":"abdoo","last_name":"ageel","email":"red@gmial.com", "password":"a4sdas56df4","salt":"oahnfaf4","balance":0,"mobile":"123456789","phone":"1234567890"},
+    "update_customer_first":{"value":"abc","pk":10000000},
+    "update_customer_last":{"value":"def","pk":10000000},
+    "update_customer_email":{"value":"@google","pk":10000000},
+    "update_customer_password":{"value":"102030","pk":10000000},
+    "update_customer_balance":{"value":"3.0","pk":10000000},
+    "update_customer_mobile":{"value":"10203000","pk":10000000},
+    "update_customer_phone":{"value":"10203000","pk":10000000},
+    "update_customer_level":{"value":2,"pk":10000000},
+    "update_customer_status":{"value":2,"pk":10000000},
+    "customer_email":{"email":"@gmin.com"},
+    "delete_customer":10000000
+  },
+  
+  "customerAddress":{
+    "addaddress":{"idcustomer_address":10000000,"latit":"af4564","longit":"asddf5564","customer_idcustomer":10000000,"school_idschool":1,"address_desc":"ee"},
+    "update_customer_latit":{"value":"gsfghsfh","pk":10000000},
+    "update_customer_longit":{"value":"sdg","pk":10000000},
+    "update_customer_default":{"value":0,"pk":10000000},
+    "update_customer_idcustomer":{"value":10000000,"pk":10000000},
+    "update_customer_idschool":{"value":2,"pk":10000000},
+    "update_customer_desc":{"value":"sdg","pk":10000000},
+    "delete_customer":10000000
+  },
+  "genre":{
+    "add_genre":{"idgenre":10000000,"name":"الخمس","name_en":"Elkhoms","tob_idtob":10000000},
+    "update_genre_name":{"value":"خمس","pk":10000000},
+    "update_genre_name_en":{"value":"Khoms","pk":10000000},
+    "update_genre_tob":{"value":10000000,"pk":10000000},
+    "delete_genre":10000000
+  },
+  "school":{
+    "add_school":{"idschool":10000000,"name":"الخمس","name_en":"Elkhoms","latit":"sdf","longit":"asddf5564","mahalla_idmahalla":100},
+    "update_school_name":{"value":"خمس","pk":10000000},
+    "update_school_name_en":{"value":"Khoms","pk":10000000},
+    "update_school_latit":{"value":"gsfghsfh","pk":10000000},
+    "update_school_longit":{"value":"sdg","pk":10000000},
+    "update_school_mahalla":{"value":100,"pk":10000000},
+    "delete_school":10000000
+  },
+  "measure":{
+    "add_measure":{"idmeasure":10000000,"name":"احمر","name_en":"red", "status":1},
+    "update_measure_name":{"value":"ابيض","pk":10000000},
+    "update_measure_name_en":{"value":"white","pk":10000000},
+    "delete_measure":10000000
+  },
+
+   "vendor":{
+    "add_vendor":{"idvendor":10000000,"name":"احمر","phone":"123456"},
+     "update_name":{"value":"hhhh","pk":10000000}
+  },
+ 
+  "vhp":{
+    "add_vendor":{"idvendor_has_prepaid":10000000,"serial_from":100,"serial_to":200,"quantity":5,"amount":55},
+     "update_name":{"value":"hhhh","pk":10000000}
+  }
+
+}

@@ -1,0 +1,109 @@
+extends layout
+block Dashboard
+  #page-wrapper
+    .container-fluid
+      // Page Heading
+      .row
+        h1  Product Manger
+          small  Sizes
+        ol.breadcrumb
+          li
+            i.fa.fa-dashboard
+            a(href='/adminPage')  Dashboard
+          li
+            i.fa  
+            a(href='/adminMeasure')  Measure
+          li.active
+            i.fa  Sizes   
+        .panel.panel-default.filterable
+          .panel-heading
+            .row
+              .col-xs-3.col-md-2
+                h3.panel-title#title
+                  strong List of Sizes
+              .pull-right
+                button#space.btn.btn-primary.btn-filter
+                  i.glyphicon.glyphicon-filter
+                  |  Filter of Search
+                a#space.btn.btn-success(href='#newSizes', role='button',data-toggle='modal')
+                  i.glyphicon.glyphicon-plus
+                  |  Add Size
+                button#space.btn.btn.btn-info
+                  i.glyphicon.glyphicon-print
+                  |  Print
+          .table-responsive
+            table.table.table-striped.table-condensed
+              thead
+                tr.filters
+                  th
+                    //- strong Name in Arabic
+                    input.form-control.text-center(type='text', placeholder='Size Name in Arabic', disabled='')
+                  th
+                    //- strong Name in English
+                    input.form-control.text-center(type='text', placeholder='Size Name in English', disabled='')
+                  th.text-center
+                    | Edit  
+                  th.text-center
+                    | Trash 
+              tbody#tbody
+                // foreach ($order->lineItems as $line) or some such thing here
+                for i in size
+                  tr(data-id="#{i.idsize}")
+                    td.text-center 
+                      a.editable.editable-click(id='name#{i.idsize}', href='#', data-type='text', data-pk='#{i.idsize}') #{i.name}
+                    td.text-center 
+                      a.editable.editable-click(id='name_en#{i.idsize}', href='#', data-type='text', data-pk='#{i.idsize}') #{i.name_en}
+                    td.text-center
+                      button#enable.btn.btn-info.btn-xs(value='#{i.idsize}' ,data-title='Edit', data-toggle='modal')
+                        span.glyphicon.glyphicon-pencil     
+                    td.text-center 
+                      button#delete.btn.btn-danger.btn-xs(href='#del', data-toggle='modal' ,value='#{i.idsize}')
+                        span.glyphicon.glyphicon-trash         
+
+        #del.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
+          .modal-dialog
+            .modal-content
+              .modal-headr.modal-header-danger
+                p.h1#Sizesid Sure you want to delete
+              .modal-body
+                p.h2 Are you sure
+                p 
+              .modal-footer
+                button#deletee.btn.btn-danger(type='button',data-dismiss='modal') Delete
+                button.btn.btn-success(data-dismiss='modal', type='button') Cancel
+        #newSizes.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
+           .modal-dialog
+            .modal-content
+              .modal-headr.modal-header-success
+                button.close(type="button", data-dismiss="modal" aria-label="Close")
+                  span(aria-hidden="true") × 
+                h2
+                  .glyphicon.glyphicon-plus
+                  |  Add Sizes
+              .row 
+                .modal-body
+                  form#formSizes.form-signin(role="form" ,name="formSizes")
+                    .col-xs-5.col-xs-offset-1.col-md-5.col-md-offset-1
+                      .form-group
+                        .h4 Name in Arabic
+                        input#name.form-control(type="text", name="name", placeholder="Name in Arabic",autofocus="")
+                    .col-xs-5.col-md-5
+                      .form-group      
+                        .h4 Name in English
+                        input#name_en.form-control(type="text", name="name_en", placeholder="Name in English",autofocus="")
+                        input.form-control.text-left(type="hidden",name="idmeasure",value="#{id}")
+              .modal-footer
+                button.btn.btn-danger(data-dismiss='modal', type='button') Cancel
+                button#save.btn.btn-primary Save Change 
+  script(src='/js/jquery-1.11.2.min.js')
+  script(src='/js/bootstrap.min.js')
+  script(src='/js/adminSizes.js') 
+  script(src='/js/editSize.js') 
+  script(src='/js/bootstrap-editable.min.js')
+  script(src='/metisMenu/dist/metisMenu.min.js')
+  script(src='/js/sb-admin-2.js')
+  script(src='/js/helpers.js')   
+  script(src='/js/searchFilter.js') 
+  script(src="/js/jquery.validate.min.js")
+  script(src='/js/bootstrap-select.min.js')
+  

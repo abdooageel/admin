@@ -1,0 +1,15 @@
+{
+
+	"users":[
+		{"username":"alaaden3000","name": "Aladdin","dateadded":"2015/01/01","status":1},
+		{"username":"faisal_rhil","name": "Faisel","dateadded":"2015/01/20","status":2},
+		{"username":"mohamed_gmati","name": "Mohamed","dateadded":"2015/03/01","status":3},
+		{"username":"a.fituri","name": "Ahmed","dateadded":"2015/03/31","status":3},
+		{"username":"f.shouba","name": "Faruk","dateadded":"2015/03/31","status":4},
+		{"username":"abdo_frge","name": "Abdulla","dateadded":"2015/03/31","status":5},
+		{"username":"abdo_prince","name": "Abduladeem","dateadded":"2015/03/31","status":5},
+		{"username":"abdo_duse","name": "Abdulquddus","dateadded":"2015/03/31","status":6}
+		]
+}
+
+	

@@ -1,0 +1,69 @@
+extends layout
+block Dashboard
+  #page-wrapper
+    .container-fluid
+      // Page Heading
+      .row
+        .col-lg-12
+          h1.page-header  Company Manger
+            small  Company View
+          ol.breadcrumb
+            li
+              i.fa.fa-dashboard
+              a(href='/adminPage')  Dashboard
+            li
+              i.fa
+              a(href='/adminCompany')  Company  
+            li.active
+              i.fa  View
+      .panel.panel-default
+            .panel-heading
+              .row
+                .col-md-3
+                  h2.panel-title 
+                    strong  Company View 
+                .col-md-5
+                .col-md-2 
+                  button#enable.btn.btn-danger
+                    span.glyphicon.glyphicon-edit
+                    |  Enable \ disable
+                .col-md-2  
+            .panel-body
+              .row
+                .col-lg-12
+                  .col-xs-12.col-sm-4
+                    figure
+                      img.img-circle.img-responsive(alt='', src='../../../company_picture/#{com[0].logo}')
+                  .col-xs-12.col-sm-8
+                    ul#user.list-group
+                      li.list-group-item Name Arabic: 
+                        a#name(href='#', data-type='text', data-pk='#{com[0].idcompany}',  data-value='#{com[0].name}') #{com[0].name}
+                      li.list-group-item Name English: 
+                        a#name_en(href='#', data-type='text', data-pk='#{com[0].idcompany}',data-value='#{com[0].name_en}') #{com[0].name_en}
+                      li.list-group-item level : 
+                        a#level(href='#', data-type='text', data-pk='#{com[0].idcompany}',  data-value='#{com[0].lcompany}') #{com[0].lcompany}
+                      li.list-group-item phone :
+                        i.fa.fa-phone
+                        a#phone(href='#', data-type='text', data-pk='#{com[0].idcompany_seller}',  data-value='#{com[0].phone}') #{com[0].phone}
+                      li.list-group-item Email : 
+                        i.fa.fa-envelope
+                        a#email(href='#', data-type='text', data-pk='#{com[0].idcompany_seller}',  data-value='#{com[0].email}') #{com[0].email}
+ 
+
+                    form(action="/company/savePhoto", method="post", enctype="multipart/form-data")
+                      input#uploadForm(type="file",name="logo", placeholder="logo",autofocus="")
+                      button.btn.btn-primary(type="submit") Save
+  
+  script(src='/js/jquery-1.11.2.min.js')
+  script(src='/js/bootstrap.min.js')
+  script(src='/js/bootstrap-notify.min.js')
+  script(src='/js/bootstrap-editable.min.js')
+  script(src='/js/editCompanyView.js')
+    // script(src='/metisMenu/dist/metisMenu.min.js')
+  script(src="/js/jquery.validate.min.js")
+  script(src='/js/sb-admin-2.js')
+   
+  
+
+  
+  

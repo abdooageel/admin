@@ -1,0 +1,96 @@
+extends layout
+block Dashboard
+  #page-wrapper
+    .container-fluid
+      // Page Heading
+      .row
+        h1  Admin Manger
+          small  View Admins
+        ol.breadcrumb
+          li
+            i.fa.fa-dashboard
+            a(href='/adminPage')  Dashboard
+          li.active
+            i.fa.fa-user  Admin Manger
+          li.active
+            i.fa  View Admins
+
+        .panel.panel-default.filterable
+          .panel-heading
+            .row
+              .col-xs-3.col-md-2
+                h3.panel-title#title
+                  strong List of Admins
+              .pull-right
+                button#space.btn.btn-primary.btn-filter
+                  i.glyphicon.glyphicon-filter
+                  |  Filter of Search
+                a#space.btn.btn-success(href='/addAdmin', role='button',data-toggle='modal')
+                  i.glyphicon.glyphicon-plus
+                  |  Add Admin
+                button#space.btn.btn.btn-info
+                  i.glyphicon.glyphicon-print
+                  |  Print
+          .table-responsive
+            table#myTable.table.tablesorter
+              thead
+                tr.filters
+                  th
+                    input.form-control.text-center(type='text', placeholder='Admin Username', disabled='')
+                  th
+                    input.form-control.text-center(type='text', placeholder='Date Created', disabled='')
+                  th
+                    input.form-control.text-center(type='text', placeholder='Role', disabled='')
+                  th
+                    input.form-control.text-center(type='text', placeholder='Status', disabled='')
+                  th.text-center Remove
+              tfoot
+                  tr
+                    th.text-center.header 
+                      | Admin Username
+                    th.text-center.header 
+                      | Date Created
+                    th.text-center.header 
+                      | Role
+                    th.text-center.header 
+                      | Status
+                    th.text-center.header 
+                      | Remove
+              tbody
+                for i in admin
+                  tr
+                    td.text-center #{i.name}
+                    td.text-center #{i.create_time.getDate()} / #{i.create_time.getMonth()} / #{i.create_time.getFullYear()} 
+                    td.text-center 
+                    td.text-center  
+                      case i.level     
+                        when 1
+                          - var att="success"
+                          - var attName="Active"
+                        when 2 
+                          - var att="danger"
+                          - var attName="Banned"
+                        when 3 
+                          - var att="default"
+                          - var attName="InActive"
+                        when 4 
+                          - var att="warning"
+                          - var attName="Pending"
+                        when 5 
+                          - var att="info"
+                          - var attName="Info"
+                        when 6 
+                          - var att="primary"
+                          - var attName="Admin"
+                      span.label(class="label-#{att}") #{attName}
+                    td.text-center
+                      button#deletee.btn.btn-danger.btn-xs(value='#{i.idadmin}',href='#del', data-placement='top', title='Remove Admin')
+                        span.glyphicon.glyphicon-remove
+
+  script(src='/js/jquery-1.11.2.min.js')
+  script(src='/js/bootstrap.min.js')
+  script(src='/metisMenu/dist/metisMenu.min.js') 
+  script(src='/js/sb-admin-2.js')
+  script(src='/js/searchFilter.js')
+  script(src='/js/admin.js')
+    

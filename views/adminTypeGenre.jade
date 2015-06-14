@@ -1,0 +1,109 @@
+extends layout
+block Dashboard
+  #page-wrapper
+    .container-fluid
+      // Page Heading
+      .row
+        .col-lg-12
+          h1.page-header  Business Manger
+            small  Type of Genre
+          ol.breadcrumb
+            li
+              i.fa.fa-dashboard
+              a(href='/adminPage')  Dashboard
+            li
+              i.fa  
+              a(href='/adminTypeBusiness') Type of Business
+            li
+              i.fa  
+              a(href='/adminGenre') Genre  
+            li.active
+              i.fa  Type of Genre
+      .panel.panel-default
+            .panel-heading
+              .row
+                .col-md-3
+                  h2.panel-title 
+                    strong  List Type of Genre 
+                .col-md-5
+                  form(role='search')
+                    .input-group
+                      input.form-control(type='text', placeholder='Search by name')
+                      .input-group-btn
+                        button.btn.btn-default(type='submit')
+                          i.glyphicon.glyphicon-search
+                .col-md-2 
+                  a.btn.btn-success(href='#newtog', role='button',data-toggle='modal')
+                    span.glyphicon.glyphicon-plus
+                    |  Add Type of Genre
+                .col-md-2  
+            .panel-body
+              .table-responsive
+                table.table.table-condensed
+                  thead
+                    tr
+                      td
+                        strong Name in Arabic
+                      td
+                        strong Name in English
+                       td.text-right
+                        strong Edit  
+                      td.text-right
+                        strong Trash 
+                  tbody#bod
+                    for i in tog
+                      tr(data-id='#{i.idtog}')
+                        td 
+                          a.editable.editable-click(id='name#{i.idtog}', href='#', data-type='text', data-pk='#{i.idtog}') #{i.name}  
+                        td 
+                          a.editable.editable-click(id='name_en#{i.idtog}', href='#', data-type='text', data-pk='#{i.idtog}') #{i.name_en}  
+                        td.text-right
+                          button#enable.btn.btn-info.btn-xs
+                            span.glyphicon.glyphicon-pencil     
+                        td.text-right 
+                          button#delete.btn.btn-danger.btn-xs(value='#{i.idtog}',href='#del', data-toggle='modal')
+                            span.glyphicon.glyphicon-trash   
+                             
+          #del.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
+            .modal-dialog
+              .modal-content
+                .modal-headr.modal-header-danger
+                  p.h1 Sure you want to delete?
+                .modal-body
+                  p.h2 Are you sure
+                  p 
+                .modal-footer
+                  button#deletee.btn.btn-danger(type='button',data-dismiss='modal') Delete
+                  button.btn.btn-success(data-dismiss='modal', type='button') Cancel
+          #newtog.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
+             .modal-dialog
+              .modal-content
+                .modal-headr.modal-header-success
+                  button.close(type="button", data-dismiss="modal" aria-label="Close")
+                    span(aria-hidden="true") × 
+                  h2
+                    .glyphicon.glyphicon-plus
+                    |  Add Type of Genre
+                .row 
+                  .modal-body
+                    form#formtog.form-signin(role="form" , action="", method="post")
+                      .col-xs-5.col-xs-offset-1.col-md-5.col-md-offset-1
+                        .form-group
+                          .h4 Name in Arabic
+                          input#name.form-control(type="text", name="name", placeholder="Name in Arabic",autofocus="")
+                      .col-xs-5.col-md-5
+                        .form-group      
+                          .h4 Name in English
+                          input#name_en.form-control(type="text", name="name_en", placeholder="Name in English",autofocus="")
+                .modal-footer
+                  button.btn.btn-danger(data-dismiss='modal', type='button') Cancel
+                  button.btn.btn-primary(type="submit") Save Change 
+  script(src='/js/jquery-1.11.2.min.js')
+  script(src='/js/bootstrap.min.js')
+  script(src='/metisMenu/dist/metisMenu.min.js')
+  script(src='/js/bootstrap-editable.min.js')
+  script(src='/js/editTog.js')
+  script(src='/js/sb-admin-2.js') 
+  script(src='/js/adminTog.js') 
+
+ 

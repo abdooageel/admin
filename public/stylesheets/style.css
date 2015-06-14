@@ -1,0 +1,80 @@
+body {
+  padding: 20px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.footer {
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
+/*.dropdownmenu {
+	min-width: 260px;
+}*/
+
+.line-right {
+  margin-right: -1px;
+  border-right: 1px solid black;
+}
+
+.navbar {
+  position: relative;
+  min-height: 50px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+  border-left: white;
+  border-bottom: white;
+  border-top: white;
+}
+
+
+
+.navbar-header {
+  background-color: white;
+  border-color: white;
+  min-height: 50px;
+  }
+
+
+
+.container>.navbar-header, .container-fluid>.navbar-header, .container>.navbar-collapse, .container-fluid>.navbar-collapse {
+margin-right: -10px;
+margin-left: -15px;
+}
+
+.navbar-default .navbar-nav>li>a {
+  min-height: 50px;
+color: #8c98d3;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
+color: #555;
+background-color: #8c98d3;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
+color: #FFF;
+background-color: #8c98d3;
+}
+
+.navbar-default .navbar-brand {
+color: #FFF;
+}
+
+
+.btn-gift {
+  color: #fff;
+  background-color: #8c98d3;
+  border-color: #8c98d3;
+}
+
+table{
+    table-layout: fixed;
+}
+td{
+    word-wrap:break-word
+}

@@ -1,0 +1,35 @@
+extends layout
+block content
+  .container
+    h1
+      | NoScript Alert 
+      small for Bootstrap3
+    // NoScript Alert
+    // <noscript>
+    .alert.alert-danger
+      button.close(type='button', data-dismiss='alert', aria-hidden='true') ×
+      span
+        strong Notice: 
+        |  JavaScript is not enabled. 
+        a.alert-link(href='http://enable-javascript.com/') Please Enable JavaScript Safley
+        | .
+    // </noscript>
+    p
+      strong The above alert
+      |  will only show is JavaScript is disabled in the browser.
+    p
+      | Code courtesy of 
+      a(href='http://enable-javascript.com/') enable-javascript.com
+    blockquote
+      | Nowadays almost all web pages contain JavaScript, a scripting programming language that runs on visitor's web browser. It makes web pages functional for specific purposes and if disabled for some reason, the content or the functionality of the web page can be limited or unavailable. Here you can find instructions on how to enable (activate) JavaScript in five most commonly used browsers.
+    pre.
+      \n                
+    p
+      | * 
+      em Remember
+      |  to uncomment the 
+      code noscript
+      |  tags for live use.
+  script(src='/js/jquery-1.11.2.min.js')
+
+  script(src='/js/sb-admin-2.js')

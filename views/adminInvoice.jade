@@ -1,0 +1,94 @@
+extends layout
+block content
+  #invoice.paid
+    .this-is
+      strong 
+    // invoice headline
+    header#header
+      .invoice-intro
+        h1 Sizes
+        p 
+      dl.invoice-meta
+        dt.invoice-number Size #
+        dd {{:number}}
+        dt.invoice-date type
+        dd {{:date}}
+        dt.invoice-due Due Date
+        dd {{:dueDate}}
+    // e: invoice header
+    section#parties
+      .invoice-to
+        h2 Size :
+        #hcard-Hiram-Roth.vcard
+          a.url.fn {{:to.name}}
+          .org {{:to.description}}
+          a.email {{:to.mail}}
+          .adr
+            .street-address {{:to.address}}
+            span.locality {{:to.city}}
+            span.country-name {{:to.country}}
+          .tel {{:to.tel}}
+        // e: vcard
+      // e invoice-to
+      .invoice-from
+        h2 Invoice From:
+        #hcard-Admiral-Valdore.vcard
+          a.url.fn {{:from.name}}
+          .org {{:from.description}}
+          a.email {{:from.email}}
+          .adr
+            .street-address {{:from.address}}
+            span.locality {{:from.city}}
+            span.country-name {{:from.country}}
+          .tel {{:from.tel}}
+        // e: vcard
+      // e invoice-from
+      .invoice-status
+        h3 Invoice Status
+        strong
+          | Invoice is 
+          em Paid
+      // e: invoice-status
+    // e: invoice partis
+    section.invoice-financials
+      .invoice-items
+        table
+          caption Your Invoice
+          thead
+            tr
+              th Item & Description
+              th Quantity
+              th Price (GPL)
+          tbody
+            | {{for items}}
+            tr
+              th {{:name}}
+              td {{:quantity}}
+              td ${{:price}}
+            |                             {{/for}}
+      // e: invoice items
+      .invoice-totals
+        table
+          caption Totals:
+          tbody
+            tr
+              th Subtotal:
+              td
+              td ${{:~getSubTotal(#data)}}
+            tr
+              th Tax:
+              td 5%
+              td ${{:~getTaxes(#data)}}
+            tr
+              th Total:
+              td
+              td ${{:~getTotal(#data)}}
+      // e: invoice totals
+    // e: invoice financials
+    footer#footer
+      p
+        | {{:footer}}
+  // e: invoice
+  script(src='/js/jquery-1.11.2.min.js')
+  script(src='/js/bootstrap.min.js') 
+  script(src='/js/adminInvoice.js')

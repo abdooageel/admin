@@ -1,0 +1,148 @@
+extends layout
+block Dashboard
+  #page-wrapper
+    .container-fluid
+      // Page Heading
+      .row
+        h1  Locations Manger
+          small  Mahala
+        ol.breadcrumb
+          li
+            i.fa.fa-dashboard
+            a(href='/adminPage')  Dashboard
+          li.active
+            i.fa Locations Manger
+          li.active
+            i.fa  Mahala
+        .panel.panel-default.filterable
+          .panel-heading
+            .row
+              .col-xs-3.col-md-2
+                h3.panel-title#title
+                  strong List of Mahala
+              .pull-right
+                button#space.btn.btn-primary.btn-filter
+                  i.glyphicon.glyphicon-filter
+                  |  Filter of Search
+                a#space.btn.btn-success(href='#newMahala', role='button',data-toggle='modal')
+                  i.glyphicon.glyphicon-plus
+                  |  Add Mahala
+                button#space.btn.btn.btn-info
+                  i.glyphicon.glyphicon-print
+                  |  Print 
+          .table-responsive
+            table.table.table-striped.table-condensed
+              thead
+                tr.filters
+                  th
+                    //- strong Mahala Name in Arabic
+                    input.form-control.text-center(type='text', placeholder='Mahala Name in Arabic', disabled='')
+                  th
+                    //- strong Mahala Name in English
+                    input.form-control.text-center(type='text', placeholder='Mahala Name in English', disabled='')
+                  th
+                    //- strong Area Name in Arabic
+                    input.form-control.text-center(type='text', placeholder='Area Name in Arabic', disabled='')
+                  th
+                    //- strong Area Name in English
+                    input.form-control.text-center(type='text', placeholder='Area Name in English', disabled='')
+                  th.text-center
+                    strong Edit
+                  th.text-center
+                    strong Trash 
+              tfoot
+                tr
+                  th.text-center
+                    | Mahala Name in Arabic
+                  th.text-center
+                    | Mahala Name in English
+                  th.text-center
+                    | Area Name in Arabic
+                  th.text-center
+                    | Area Name in English
+                  th.text-center
+                    | Edit
+                  th.text-center
+                    | Trash
+              tbody#tbody
+                // foreach ($order->lineItems as $line) or some such thing here
+                for mahalas in mahala
+                  tr(data-id='#{mahalas.idmahalla}')
+                    td.text-center
+                      a.editable.editable-click(id='name#{mahalas.idmahalla}', href='#', data-type='text', data-pk='#{mahalas.idmahalla}')  #{mahalas.mahallaName}
+                    td.text-center 
+                      a.editable.editable-click(id='name_en#{mahalas.idmahalla}', href='#', data-type='text', data-pk='#{mahalas.idmahalla}')  #{mahalas.mahallaName_en}
+                    td.text-center #{mahalas.areaName}
+                    td.text-center #{mahalas.areaName_en}
+                    td.text-center
+                      button#enable.btn.btn-info.btn-xs(value='#{mahalas.idmahalla}', data-toggle='modal', data-placement='top', title='Edit Mahala')
+                        span.glyphicon.glyphicon-pencil   
+                    td.text-center 
+                      button#delete.btn.btn-danger.btn-xs(value='#{mahalas.idmahalla}',href='#del', data-toggle='modal', data-placement='top', title='Delete Mahala')
+                        span.glyphicon.glyphicon-trash          
+        if pagination 
+          .text-center
+            ul.pagination
+              li(class='#{pagination.previous.disabled}')
+                a(href='?p=#{pagination.previous.n}') Previous
+              for page in pagination.pages
+                li(class="#{page.active}")
+                  a(href='?p=#{page.n}') #{page.n}
+              li(class="#{pagination.next.disabled}")
+                a(href='?p=#{pagination.next.n}') Next
+        #del.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
+          .modal-dialog
+            .modal-content
+              .modal-headr.modal-header-danger
+                p.h1#Mahallaid Sure you want to delete
+              .modal-body
+                p.h2 Are you sure
+                p 
+              .modal-footer
+                button#deletee.btn.btn-danger(type='button',data-dismiss='modal') Delete
+                button.btn.btn-success(data-dismiss='modal', type='button') Cancel
+        #newMahala.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
+            .modal-dialog
+              .modal-content
+                .modal-headr.modal-header-success
+                  button.close(type="button", data-dismiss="modal" aria-label="Close")
+                    span(aria-hidden="true") × 
+                  h2.modal-title
+                    .glyphicon.glyphicon-plus
+                    |  Add Mahala
+                .modal-body
+                  .row
+                    form#formMahala(role="form",name="formMahala")
+                      .col-xs-5.col-xs-offset-1.col-md-5.col-md-offset-1
+                        .form-group
+                          .h4 Name in Arabic
+                          input#nameArabic.form-control(type="text", name="name", placeholder="Name in Arabic",autofocus="")
+                      .col-xs-5.col-md-5
+                        .form-group      
+                          .h4 Name in English
+                          input#nameEnglish.form-control(type="text", name="name_en", placeholder="Name in English",autofocus="")
+                      .col-xs-5.col-xs-offset-1.col-md-5.col-md-offset-1  
+                        .form-group
+                          .h4 City
+                          select#city.form-control(type="text", name="city", autofocus="")
+                            option(value="-1", style='color: grey; display:none;') Please Select City
+                            for city in cities
+                              option(value="#{city.idcity}") #{city.name} #{city.name_en}
+                      .col-xs-5.col-md-5  
+                        .form-group
+                          .h4 Area
+                          select#area.form-control(type="text", name="area_idarea", autofocus="")
+                .modal-footer
+                  button.btn.btn-danger(data-dismiss='modal', type='button') Cancel
+                  button#save.btn.btn-primary() Save Change      
+  script(src='/js/jquery-1.11.2.min.js')
+  script(src='/js/bootstrap.min.js')
+  script(src='/js/bootstrap-notify.min.js')
+  script(src='/js/bootstrap-select.min.js')
+  script(src="/js/jquery.validate.min.js")
+  script(src='/metisMenu/dist/metisMenu.min.js')
+  script(src='/js/bootstrap-editable.min.js')
+  script(src='/js/helpers.js')
+  script(src='/js/sb-admin-2.js') 
+  script(src='/js/adminMahalla.js')
+  script(src='/js/searchFilter.js') 

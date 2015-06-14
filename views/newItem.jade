@@ -1,0 +1,280 @@
+extends layout
+block Dashboard
+  #page-wrapper
+    .container-fluid
+      // Page Heading
+      .row
+        h1  Item Manger
+          small  New Item
+        ol.breadcrumb
+          li
+            i.fa.fa-dashboard
+            a(href='/adminPage')  Dashboard
+          li.active
+            i.fa.fa-cart-arrow-down  Item Manger
+          li.active
+            i.fa  New Item
+        //- code start
+        form#formNewItem(role="form",name='formNewItem')
+          .panel.panel-default
+            .panel-heading
+              .h3.panel-title Name & Descrption
+            .panel-body
+              .row
+                .col-xs-6.col-md-5.col-md-offset-1
+                  .form-group
+                    .h5 Item in Arabic
+                    input#name.form-control(type="text",name="name", placeholder="Name in Arabic")
+                .col-xs-6.col-md-5
+                  .form-group      
+                    .h5 Item in English
+                    input#name_en.form-control(type="text",name="name_en", placeholder="Name in English")
+                .col-xs-12.col-md-10.col-md-offset-1
+                  .form-group
+                    .h5 Descrption
+                    textarea#item_desc.form-control(name="item_desc" placeholder="Please enter descrption here..." rows="10")
+            .panel-heading
+              .h3.panel-title Price & Discount
+            .panel-body
+              .row
+                .col-xs-6.col-md-5.col-md-offset-1
+                  .form-group
+                    .h5 Price
+                    .input-group
+                      span.input-group-addon $
+                      input#price.form-control(type='text',name="price" ,placeholder="Enter price")
+                .col-xs-5.col-xs-offset-1.col-md-5.col-md-offset-1
+                  .form-group      
+                    .h5 Discount State
+                    input#discount_flag(type='checkbox', name='discount_flag')
+                .col-xs-6.col-md-5.col-md-offset-1
+                  .form-group#Hide(style='display:none')
+                    .h5 Discount
+                    .input-group
+                      span.input-group-addon %
+                      input#discount.form-control(type="text",name="discount", placeholder="Enter discount")
+                .col-xs-6.col-md-5
+                  .form-group#Hide1(style='display:none')
+                    .h5 Discount Expiration Date
+                    .input-group
+                      span.input-group-addon 
+                       i.fa.fa-calendar
+                      input#discount_exp.form-control(type='text', placeholder="Enter exp date")
+            
+            //- tob ==> type of business 
+            .panel-heading
+              .h3.panel-title Type of Business
+            .panel-body
+              .row
+                .col-md-8.col-md-offset-2
+                  .h4 Select T.O.B.
+              .row
+                .col-md-5.col-md-offset-2
+                  select#validationNoCreate.form-control.selectpicker.show-tick(type="text",name="",data-show-subtext='true',data-size='5',data-live-search='true')
+                    option(value="", style='color:grey; display:none;') Please Select T.O.B.
+                .col-md-5
+                  a.btn.btn-success(href='#newtob', role='button',data-toggle='modal') 
+                    i.glyphicon.glyphicon-plus
+                    |  New T.O.B.
+
+            //- company select 
+            .panel-heading
+              .h3.panel-title Company
+            .panel-body
+              .row
+                .col-md-8.col-md-offset-2
+                  .h4 Select Company 
+              .row
+                .col-md-5.col-md-offset-2
+                  select#company_idcompany.form-control.selectpicker.show-tick(type="text",name="company_idcompany",data-show-subtext='true',data-size='5',data-live-search='true')
+                    option(value="", style='color:grey; display:none;') Please Select Company
+                    for company in companys
+                      option(value="#{company.idcompany}") #{company.name} 
+                .col-md-5
+                  a.btn.btn-success(href='#newCompany', role='button',data-toggle='modal') 
+                    i.glyphicon.glyphicon-plus
+                    |  New Company
+
+            //- genre select 
+            .panel-heading
+              .h3.panel-title Genre
+            .panel-body
+              .row
+                .col-md-8.col-md-offset-2
+                  .h4 Select Genre
+              .row
+                .col-md-5.col-md-offset-2
+                  select#genre_idgenre.form-control.selectpicker.show-tick(type="text",name="genre_idgenre",data-show-subtext='true',data-size='5',data-live-search='true')
+                    option(value="", style='color:grey; display:none;') Please Select Genre
+                .col-md-5
+                  a.btn.btn-success(href='#newGenre', role='button',data-toggle='modal') 
+                    i.glyphicon.glyphicon-plus
+                    |  New Genre
+            //- 
+            .panel-heading
+              .h3.panel-title Measure & Size
+            .panel-body
+              .row
+                .col-xs-6.col-md-2.col-md-offset-1
+                  .form-group      
+                    .h5 Size State
+                    input#genre_flag(type='checkbox', name='genre_flag')
+                .col-xs-5.col-xs-offset-1.col-md-4
+                  .form-group#HideGenre(style='display:none')   
+                    .h5 Select Genre
+                    select#genre_idSize.form-control.selectpicker.show-tick(type="text",name="genre_idSize",data-show-subtext='true',data-size='5',data-live-search='true')
+                      option(value="", style='color:grey; display:none;') Please Select Genre
+                      for measure in measures
+                        option(value="#{measure.idmeasure}") #{measure.name} 
+
+                      
+              .form-group#iddd
+                .row
+
+  #newtob.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
+    .modal-dialog
+      .modal-content
+        .modal-headr.modal-header-success
+          button.close(type="button", data-dismiss="modal" aria-label="Close")
+            span(aria-hidden="true") × 
+          h2
+            .glyphicon.glyphicon-plus
+            |  New Type of Business
+        .row 
+          .modal-body
+            form#formtob.form-signin(role="form" , action="", method="post")
+              .col-xs-5.col-xs-offset-1.col-md-5.col-md-offset-1
+                .form-group
+                  .h4 Name in Arabic
+                  input#name.form-control(type="text", name="name", placeholder="Name in Arabic",autofocus="")
+              .col-xs-5.col-md-5
+                .form-group      
+                  .h4 Name in English
+                  input#name_en.form-control(type="text", name="name_en", placeholder="Name in English",autofocus="")
+        .modal-footer
+          button.btn.btn-danger(data-dismiss='modal', type='button') Cancel
+          button#save.btn.btn-primary() Save Change 
+
+  #newCompany.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
+    .modal-dialog
+      .modal-content
+        .modal-headr.modal-header-success
+          button.close(type="button", data-dismiss="modal" aria-label="Close")
+            span(aria-hidden="true") ×
+          h2
+            .glyphicon.glyphicon-plus
+            |  New Company
+        .row 
+          .modal-body
+            form#formCompany.form-signin(role="form" , action="", method="post")
+              .col-xs-6.col-md-6
+                .form-group
+                  .h4 Name in Arabic     
+                  input#name.form-control(type="text",name="name", placeholder="Name in Arabic",autofocus="")
+                .form-group
+                  .h4 Type of Business
+                  select#tob_idtob.form-control(type="text",name="tob_idtob", placeholder="Type of Business",autofocus="")  
+                .form-group
+                  .h4 logo
+                  input#logo(type="file",name="logo", placeholder="logo",autofocus="")
+              .col-xs-6.col-md-6
+                .form-group
+                  .h4 Name in English
+                  input#name_en.form-control(type="text",name="name_en", placeholder="Name in English",autofocus="")
+                .form-group
+                  .h4 level
+                  select#level.form-control(type="text",name="level", placeholder="level",autofocus="")    
+                    for i in [1,2,3,4,5]
+                      option(value="#{i}",data-subtext='#{i}') #{i}   
+        .modal-footer
+          button.btn.btn-danger(data-dismiss='modal', type='button') Cancel
+          button#save.btn.btn-primary() Save Change
+  
+  #newGenre.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
+    .modal-dialog
+      .modal-content
+        .modal-headr.modal-header-success
+          button.close(type="button", data-dismiss="modal" aria-label="Close")
+            span(aria-hidden="true") × 
+          h2
+            .glyphicon.glyphicon-plus
+            |  New Genre
+        .row 
+          .modal-body
+            form#formGenre.form-signin(role="form" , action="", method="post")
+              .col-xs-5.col-xs-offset-1.col-md-5.col-md-offset-1
+                .form-group
+                  .h4 Name in Arabic
+                  input#name.form-control(type="text", name="name", placeholder="Name in Arabic",autofocus="")
+              .col-xs-5.col-md-5
+                .form-group      
+                  .h4 Name in English
+                  input#name_en.form-control(type="text", name="name_en", placeholder="Name in English",autofocus="")
+        .modal-footer
+          button.btn.btn-danger(data-dismiss='modal', type='button') Cancel
+          button.btn.btn-primary(type="submit") Save Change 
+  
+  script(src='/js/jquery-1.11.2.min.js')
+  script(src='/js/bootstrap.min.js')
+  script(src="/js/jquery.validate.min.js")
+  script(src="/js/newItem.js")
+  script(src='/js/helpers.js')
+  script(src='/metisMenu/dist/metisMenu.min.js')
+  script(src='/js/sb-admin-2.js')
+  script(src="/js/bootstrap-switch.min.js")
+  script(src='/js/bootstrap-select.min.js')
+  
+  script.
+    $("[name='discount_flag']").bootstrapSwitch('state', false);
+    $("[name='genre_flag']").bootstrapSwitch('state', false);
+    $(document).ready(function(){
+      $("[name='discount_flag']").on('switchChange.bootstrapSwitch', function (e, data) {
+        var state=$(this).bootstrapSwitch('state');
+        if(state)
+        {
+          $("#Hide").show(400); //-.addClass('animated fadeInDown');
+          $("#Hide1").show(400);//- .addClass('animated fadeInDown');
+        }
+        else
+        {
+          $("#Hide").hide(400);//-.addClass('animated fadeInUp');
+          $("#Hide1").hide(400);//- .addClass('animated fadeInUp');
+        }
+      });
+
+      //- 
+      $("[name='genre_flag']").on('switchChange.bootstrapSwitch', function (e, data) {
+        var state=$(this).bootstrapSwitch('state');
+        if(state)
+        {
+          $("#HideGenre").show(400); //-.addClass('animated fadeInDown');
+        }
+        else
+        {
+          $("#HideGenre").hide(400);//-.addClass('animated fadeInUp');
+        }
+      });
+      
+      //- 
+      $('#genre_idSize').on('change', function () {
+        var id = $('#genre_idSize').val();
+        $('#iddd').empty();
+        $.get("/getSize/"+id,function(result){
+          for(key in result){
+            $('#iddd').append('<div class="col-md-4"><div id="'+result[key].idsize+'" class="checkbox"><label style="font-size: 1.5em"><input type="checkbox" value="'+result[key].idsize+'"/><span class="cr"><i class="cr-icon fa fa-check"></i></span>'+result[key].name+'</label><div class="col-md-4 pull-right"></div></div></div>');
+          }
+        });
+      });
+
+      //- 
+      $('body').on('click', '#iddd :checkbox', function (){
+        var $this = $(this);
+        // $this will contain a reference to the checkbox   
+        if ($this.is(':checked')) {
+            $(this).parent().siblings(".col-md-4").append("<div class='row'><div id='"+$this.val()+"Q' ><input class='form-control' placeholder='8XL' type='text'></div></div>")
+        } else {
+            $("#"+$this.val()+"Q").remove();
+        }
+      });
+      
+    });

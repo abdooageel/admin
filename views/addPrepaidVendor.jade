@@ -1,0 +1,125 @@
+extends layout
+block Dashboard
+  #page-wrapper
+    .container-fluid
+      // Page Heading
+      .row
+        h1  Admin Manger
+          small  View Admins
+        ol.breadcrumb
+          li
+            i.fa.fa-dashboard
+            a(href='/adminPage')  Dashboard
+          li.active
+            i.fa.fa-user  vendor
+        .row    
+          .col-xs-5.pull-right
+            .form-group      
+              .h5(style ="font-weight: bold; color:#FF9900 ;") Is It Company !
+              input#discount_flag(type='checkbox', name='discount_flag')    
+        .row        
+          .col-md-8.col-md-offset-2
+                form.form-horizontal#Hide1(role='form')
+                  .form-group
+                    label.col-sm-2.control-label vendor
+                    .col-sm-5
+                      select#level.form-control(type="text",name="level", placeholder="amount",autofocus="")
+                        option(data-icon='glyphicon glyphicon-music') vendor
+                        option(data-icon='glyphicon glyphicon-music') vendor2
+                    .col-sm-3 
+                      a.btn.btn-primary.pull-right(href='#newVendor', role='button',data-toggle='modal')
+                        span.glyphicon.glyphicon-plus
+                        |  Add Vendor
+                  // select input
+                  .form-group
+                    label.col-sm-2.control-label amount
+                    .col-sm-8
+                      select#level.form-control(type="text",name="level", placeholder="amount",autofocus="")
+                        option(data-icon='glyphicon glyphicon-music') 100
+                        option(data-icon='glyphicon glyphicon-star') 50
+                        option(data-icon='glyphicon glyphicon-heart') 20
+                  // Text input
+                  .form-group
+                    label.col-sm-2.control-label  serial_from
+                    .col-sm-8
+                      input.form-control(type='text', placeholder='serial_from')
+                  .form-group      
+                    label.col-sm-2.control-label serial_to
+                    .col-sm-8
+                      input.form-control(type='text', placeholder='serial_to')
+                  // number input
+                  .form-group
+                    label.col-sm-2.control-label quantity
+                    .col-sm-8
+                      input.form-control(type='number', placeholder='quantity')
+                  .form-group
+                    .col-sm-offset-2.col-sm-8
+                      .pull-right
+                        button.btn.btn-default(data-dismiss='modal', type='button') Cancel
+                        button.btn.btn-primary(type='submit') Save
+                form.form-horizontal#Hide(role='form')
+                  .form-group
+                    label.col-sm-2.control-label company
+                    .col-sm-8
+                      select#level.form-control(type="text",name="level", placeholder="amount",autofocus="")
+                        option(data-icon='glyphicon glyphicon-music') naga
+                        option(data-icon='glyphicon glyphicon-music') gaga
+
+                        
+                  // select input
+                  .form-group
+                    label.col-sm-2.control-label amount
+                    .col-sm-8
+                      select#level.form-control(type="text",name="level", placeholder="amount",autofocus="")
+                        option(data-icon='glyphicon glyphicon-music') 100
+                        option(data-icon='glyphicon glyphicon-star') 50
+                        option(data-icon='glyphicon glyphicon-heart') 20
+                 
+                  // Text input
+                  .form-group
+                    label.col-sm-2.control-label  serial_from
+                    .col-sm-8
+                      input.form-control(type='text', placeholder='serial_from')
+                  .form-group      
+                    label.col-sm-2.control-label serial_to
+                    .col-sm-8
+                      input.form-control(type='text', placeholder='serial_to')
+                  // number input
+                  .form-group
+                    label.col-sm-2.control-label   quantity
+                    .col-sm-8
+                      input.form-control(type='number', placeholder='quantity')
+                  .form-group
+                    .col-sm-offset-2.col-sm-8
+                      .pull-right
+                        button.btn.btn-default(data-dismiss='modal', type='button') Cancel
+                        button.btn.btn-primary(type='submit') Save
+        #newVendor.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
+         .modal-dialog
+          .modal-content
+            .modal-headr.modal-header-primary
+              button.close(type="button", data-dismiss="modal" aria-label="Close")
+                span(aria-hidden="true") × 
+            .row 
+              .modal-body
+                form#formnewVendor.form-signin(role="form")
+                  .col-xs-5.col-xs-offset-1.col-md-5.col-md-offset-1
+                    .form-group
+                      .h4 Name 
+                      input#name.form-control(type="text", name="name", placeholder="Vendor Name",autofocus="")
+                  .col-xs-5.col-md-5
+                    .form-group      
+                      .h4 Phone
+                      input#phone.form-control(type="Phone", name="name_en", placeholder="Vendor Phone",autofocus="")
+            .modal-footer
+              button.btn.btn-default(data-dismiss='modal', type='button') Cancel
+              button#save.btn.btn-primary() Save Change                     
+
+  script(src='/js/jquery-1.11.2.min.js')
+  script(src='/js/bootstrap.min.js')
+  script(src='/metisMenu/dist/metisMenu.min.js') 
+  script(src='/js/sb-admin-2.js')
+  script(src='/js/searchFilter.js')
+  script(src='/js/admin.js')
+  script(src="/js/bootstrap-switch.min.js")
+  script(src='/js/vendor.js')    

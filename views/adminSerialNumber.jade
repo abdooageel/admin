@@ -1,0 +1,93 @@
+extends layout
+block Dashboard
+  #page-wrapper
+    .container-fluid
+      // Page Heading
+      .row
+        .col-lg-12
+        h1  Admin Serial Number 
+          small  Perpaid Card
+        ol.breadcrumb
+          li
+            i.fa.fa-dashboard
+            a(href='/adminPage')  Dashboard
+          li.active
+            i.glyphicon.glyphicon-check
+            |  Perpaid Card
+        .col-md-10.col-md-offset-1
+          .tile-progress.tile-primary
+            .tile-header
+              h4 العدد الكلي للكروت :  كرت
+              h4 مبلغ المال الكلي للكروت : 0 د.ل
+              h4 فئة 20 : العدد 0 كرت , المبلغ 0 د.ل
+              h4 فئة 50 : العدد 0 كرت , المبلغ 0 د.ل
+              h4 فئة 100: العدد 0 كرت , المبلغ 0 د.ل
+            .tile-progressbar
+              span(data-fill='10%', style='width: 100%;')
+            .tile-footer
+              h4
+                span.pct-counter 100
+                | % النسبة
+              span النسبة الكاملة
+          .tile-progress.tile-red
+            .tile-header
+              h4 عدد الكروت المستخــدمة : 0 كرت
+              h4 مبلغ المال للكروت المستخدمة : 0
+              h4 فئة 20 : العدد 0 كرت , المبلغ 0 د.ل
+              h4 فئة 50 : العدد 0 كرت , المبلغ 0 د.ل
+              h4 فئة 100: العدد 0 كرت , المبلغ 0 د.ل
+            .tile-progressbar
+              
+              span(data-fill='0%', style='width: 0%;')
+            .tile-footer
+              h4
+                span.pct-counter 0
+                | % النسبة
+              span تحديد نسبة الكروت المستخدمة حسب  العدد
+          .tile-progress.tile-blue
+            .tile-header
+              h4 عدد الكروت الغير المستخــدمة : 0 كرت
+              h4 مبلغ المال للكروت الغير المستخدمة : 0
+              h4 فئة 20 : العدد 0 كرت , المبلغ 0 د.ل
+              h4 فئة 50 : العدد 0 كرت , المبلغ 0 د.ل
+              h4 فئة 100: العدد 0 كرت , المبلغ 0 د.ل
+            .tile-progressbar
+              span(data-fill='0%', style='width: 0%;')
+            .tile-footer
+              h4
+                span.pct-counter 0
+                | % النسبة
+              span تحديد نسبة الكروت الغير مستخدمة حسب العدد 
+          .tile-progress.tile-aqua
+            .tile-header
+              h4 مبلغ المال للكروت المستخدمة : 0 د.ل  
+              h4 فئة 20 : 0 د.ل 
+              h4 فئة 50 : 0 د.ل
+              h4 فئة 100: 0 د.ل
+            .tile-progressbar
+              span(data-fill='0%', style='width: 0%;')
+            .tile-footer
+              h4
+                span.pct-counter 0
+                | % النسبة 
+              span تحديد نسبة الكروت المستخدمة حسب المبلغ المالي
+          .tile-progress.tile-green
+            .tile-header
+              h4 مبلغ الكروت الغير مستخدمة: 0 د.ل
+              h4 فئة 20 : 0 د.ل 
+              h4 فئة 50 : 0 د.ل
+              h4 فئة 100: 0 د.ل 
+            .tile-progressbar
+              span(data-fill='0%')
+            .tile-footer
+              h4
+                span.pct-counter 0
+                | % النسبة
+              span تحديد نسبة الكروت الغير مستخدمة حسب المبلغ المالي
+  script(src='/js/jquery-1.11.2.min.js')
+  script(src='/js/bootstrap.min.js')
+  script(src='/js/adminSerialNumber.js')
+  script(src='metisMenu/dist/metisMenu.min.js')
+  script(src='/js/nprogress.js')
+  script(src='/js/sb-admin-2.js')
+

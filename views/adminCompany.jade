@@ -1,0 +1,126 @@
+extends layout
+block Dashboard
+  #page-wrapper
+    .container-fluid
+      // Page Heading
+      .row
+        .col-lg-12
+          h1.page-header  Company Manger
+            small  Company
+          ol.breadcrumb
+            li
+              i.fa.fa-dashboard
+              a(href='/adminPage')  Dashboard
+            li.active
+              i.fa  Company
+      .panel.panel-default
+            .panel-heading
+              .row
+                .col-md-3
+                  h2.panel-title 
+                    strong  List of Company 
+                .col-md-5
+                  form(role='search')
+                    .input-group
+                      input.form-control(type='text', placeholder='Search by name')
+                      .input-group-btn
+                        button.btn.btn-default(type='submit')
+                          i.glyphicon.glyphicon-search
+                .col-md-2 
+                  a.btn.btn-success(href='#newCompany', role='button',data-toggle='modal')
+                    span.glyphicon.glyphicon-plus
+                    |  Add Company 
+                .col-md-2  
+            .panel-body
+              .table-responsive
+                table.table.table-condensed
+                  thead
+                    tr
+                      td
+                        strong Name in Arabic
+                      td
+                        strong Name in English
+                      td.text-right
+                        strong View
+                      td.text-right
+                        strong Addresses
+                      td.text-right
+                        strong Seller  
+                      td.text-right
+                        strong Trash 
+                  tbody#tbody
+                  for i in company
+                    tr
+                      td #{i.name}
+                      td #{i.name_en}
+                      td.text-right
+                        button#View.btn.btn-primary.btn-xs(value='#{i.idcompany}')
+                          span.glyphicon.glyphicon-eye-open
+                      td.text-right
+                        button#Addresses.btn.btn-info.btn-xs(value='#{i.idcompany}')
+                          span.glyphicon.glyphicon-map-marker
+                      td.text-right
+                        button#seller.btn.btn-warning.btn-xs(value='#{i.idcompany}')
+                          span.glyphicon.glyphicon-user      
+                      td.text-right 
+                        button#delete.btn.btn-danger.btn-xs(value='#{i.idcompany}',href='#del', data-toggle='modal')
+                          span.glyphicon.glyphicon-trash      
+          #del.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
+            .modal-dialog
+              .modal-content
+                .modal-headr.modal-header-danger
+                  p.h1 Sure you want to delete?
+                .modal-body
+                  p.h2 Are you sure
+                  p 
+                .modal-footer
+                  button#deletee.btn.btn-danger(type='button',data-dismiss='modal') Delete
+                  button.btn.btn-success(data-dismiss='modal', type='button') Cancel
+          #newCompany.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
+            .modal-dialog
+              .modal-content
+                .modal-headr.modal-header-success
+                  button.close(type="button", data-dismiss="modal" aria-label="Close")
+                    span(aria-hidden="true") ×
+                  h2
+                    .glyphicon.glyphicon-plus
+                    |  Add Company
+                .row 
+                  .modal-body
+                    form#formCompany.form-signin(role="form")
+                      .col-xs-6.col-md-6
+                        .form-group
+                          .h4 Name in Arabic     
+                          input#name.form-control(type="text",name="name", placeholder="Name in Arabic",autofocus="")
+                        .form-group
+                          .h4 Type of Business
+                          select#tob_idtob.form-control(type="text",name="tob_idtob", placeholder="Type of Business",autofocus="")  
+                            for to in tob
+                              option(value="#{to.idtob}",data-subtext='#{to.name_en}') #{to.name}   
+                        .form-group
+                          .h4 logo
+                          input#logo(type="file",name="logo", placeholder="logo",autofocus="")
+                      .col-xs-6.col-md-6
+                        .form-group
+                          .h4 Name in English
+                          input#name_en.form-control(type="text",name="name_en", placeholder="Name in English",autofocus="")
+                        .form-group
+                          .h4 level
+                          select#level.form-control(type="text",name="level", placeholder="level",autofocus="")    
+                            for i in [1,2,3,4,5]
+                              option(value="#{i}",data-subtext='#{i}') #{i}   
+                .modal-footer
+                  button.btn.btn-danger(data-dismiss='modal') Cancel
+                  button#save.btn.btn-primary() Save Change
+  script(src='/js/jquery-1.11.2.min.js')
+  script(src='/js/bootstrap.min.js')
+  script(src='/metisMenu/dist/metisMenu.min.js')
+  script(src='/js/sb-admin-2.js') 
+  script(src='/js/bootstrap-notify.min.js')
+  script(src='/js/helpers.js')
+  script(src="/js/jquery.validate.min.js")
+  script(src='/js/bootstrap-select.min.js') 
+  script(src='/js/adminCompany.js')
+  script(src='/js/CompanyAddress.js')
+  script(src='/js/companySeller.js') 
+

@@ -1,0 +1,27 @@
+html
+  head
+    meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+    title #{user.name}
+    style(media='all', type='text/css')
+  body
+    table(cellspacing='0', cellpadding='0', border='0', width='100%' dir ="rtl")
+      tr
+        td.navbar.navbar-inverse(align='right')
+          //This setup makes the nav background stretch the whole width of the screen. 
+          a.brand.pull-left(href='naga.ly')
+            img(src="http://naga.ly/rsz_naga301.jpg"  width="100" height="48")
+      tr
+        td
+          hr
+      tr
+        td(bgcolor='#FFFFFF', align='left') رسالة من المتجر الألكتروني لشــركة ناقة للحلول التقنية
+          p
+            a(href='http://naga.ly') اضغط هنا لزيارة موقعنا
+          p اسم المستخدم : #{user.name} 
+          p إيميل المستخدم : #{user.email} 
+          p الموضوع : #{user.subject} 
+          p الرسالة : #{user.text}
+      tr
+        td(bgcolor='#FFFFFF', align='center')
+          hr
+          p شركة ناقة لحلول تقنية المعلومات

@@ -1,0 +1,96 @@
+extends layout
+block Dashboard
+  #page-wrapper
+    .container-fluid
+      // Page Heading
+      .row
+        h1  Admin Manger
+          small  View Admins
+        ol.breadcrumb
+          li
+            i.fa.fa-dashboard
+            a(href='/adminPage')  Dashboard
+          li.active
+            i.fa.fa-user
+            a(href='/vendor')   vendor
+          li.active
+            i.fa.fa-user  vendorHasPrepaid  
+        br 
+        .row        
+          .col-md-10.col-md-offset-1
+            form.form-horizontal#Hide1(role='form')
+              .panel.panel-default
+                .panel-heading
+                  .row
+                    .col-md-3
+                      h2.panel-title 
+                        strong  List of Vendor
+                    .col-md-4
+                      form(role='search')
+                        .input-group
+                          input.form-control(type='text', placeholder='Search by name')
+                          .input-group-btn
+                            button.btn.btn-default(type='submit')
+                              i.glyphicon.glyphicon-search
+                    .col-md-4
+                      form(role='search')
+                        .input-group
+                          input.form-control(type='text', placeholder='Search by serial number')
+                          .input-group-btn
+                            button.btn.btn-default(type='submit')
+                              i.glyphicon.glyphicon-search               
+                form.form-horizontal(role='form')
+                    .table-responsive
+                      table.table.table-striped.table-condensed
+                        thead
+                          tr
+                            td.text-center
+                              strong  serial from
+                            td.text-center
+                              strong serial to
+                             td.text-center
+                              strong  quantity
+                            td.text-center
+                              strong amount
+                            td.text-center
+                              strong Edit  
+                            td.text-center
+                              strong Trash 
+                        tbody#colorTable
+                         
+                            tr(data-id='')
+                              td.text-center 
+                                 a.editable.editable-click(id='serial_from', href='#', data-type='text', data-pk='') 
+                              td.text-center
+                                a.editable.editable-click(id='serial_to', href='#', data-type='text', data-pk='')
+                              td.text-center 
+                                 a.editable.editable-click(id='quantity', href='#', data-type='text', data-pk='') 
+                              td.text-center
+                                a.editable.editable-click(id='amount', href='#', data-type='text', data-pk='')    
+                              td.text-center
+                                button#enable.btn.btn-info.btn-xs(value='' ,data-title='Edit', data-toggle='modal')
+                                  span.glyphicon.glyphicon-pencil     
+                              td.text-center
+                                button#delete.btn.btn-danger.btn-xs(href='#devo', data-toggle='modal',value='')
+                                  span.glyphicon.glyphicon-trash   
+                #devo.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
+                  .modal-dialog
+                    .modal-content
+                      .modal-headr.modal-header-danger
+                        p.h1 Sure you want to delete?
+                      .modal-body
+                        p.h2 Are you sure
+                        p 
+                      .modal-footer
+                        button#deletee.btn.btn-danger(type='button',data-dismiss='modal') Delete
+                        button.btn.btn-success(data-dismiss='modal', type='button') Cancel                
+                      
+             
+  script(src='/js/jquery-1.11.2.min.js')
+  script(src='/js/bootstrap.min.js')
+  script(src='/metisMenu/dist/metisMenu.min.js') 
+  script(src='/js/sb-admin-2.js')
+  script(src='/js/searchFilter.js')
+  script(src='/js/admin.js')
+  script(src="/js/bootstrap-switch.min.js")
+  script(src='/js/vendor.js')  

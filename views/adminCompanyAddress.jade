@@ -1,0 +1,146 @@
+extends layout
+block Dashboard
+  #page-wrapper
+    .container-fluid
+      // Page Heading
+      .row
+        .col-lg-12
+          h1.page-header  Company Manger
+            small  Company Address
+          ol.breadcrumb
+            li
+              i.fa.fa-dashboard
+              a(href='/adminPage')  Dashboard
+            li
+              i.fa
+              a(href='/adminCompany')  Company
+            li.active
+              i.fa  Address  
+      .panel.panel-default
+            .panel-heading
+              .row
+                .col-md-3
+                  h2.panel-title 
+                    strong  List of Company Address
+                .col-md-5
+                  form(role='search')
+                    .input-group
+                      input.form-control(type='text', placeholder='Search by School')
+                      .input-group-btn
+                        button.btn.btn-default(type='submit')
+                          i.glyphicon.glyphicon-search
+                .col-md-2 
+                  a.btn.btn-success(href='#newAddres', role='button',data-toggle='modal')
+                    span.glyphicon.glyphicon-plus
+                    |  Add Addres 
+                .col-md-2  
+            .panel-body
+              .table-responsive
+                table.table.table-condensed
+                  thead
+                    tr
+                      td
+                        strong Latit
+                      td
+                        strong Longit
+                      //- td
+                      //-   strong Branch
+                      td
+                        strong School
+                      td
+                        strong Description
+                      td.text-right
+                        strong Edit    
+                      td.text-right
+                        strong Trash
+                  tbody#tbody 
+                  for i in address
+                    tr(data-id='#{i.idcompany_address}')
+                      td 
+                        a.editable.editable-click(id='latit#{i.idcompany_address}', href='#', data-type='text', data-pk='#{i.idcompany_address}') #{i.latit}
+                      td
+                        a.editable.editable-click(id='longit#{i.idcompany_address}', href='#', data-type='text', data-pk='#{i.idcompany_address}') #{i.longit}
+                      //- td 
+                      //-   a.editable.editable-click(id='branch#{1}', href='#', data-type='select', data-pk='#{1}') Main branch
+                      td 
+                        | #{i.na}
+                      td 
+                        a.editable.editable-click(id='description#{i.idcompany_address}', href='#', data-type='textarea', data-pk='#{i.idcompany_address}') #{i.address_desc}
+                      td.text-right
+                        button#enable.btn.btn-info.btn-xs(value='#{i.idcompany_address}' ,data-title='Edit', data-toggle='modal', name='sa')
+                          span.glyphicon.glyphicon-pencil        
+                      td.text-right 
+                        button#delete.btn.btn-danger.btn-xs(value='#{i.idcompany_address}',href='#del', data-toggle='modal')
+                          span.glyphicon.glyphicon-trash      
+          #del.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
+            .modal-dialog
+              .modal-content
+                .modal-headr.modal-header-danger
+                  p.h1 Sure you want to delete?
+                .modal-body
+                  p.h2 Are you sure
+                  p 
+                .modal-footer
+                  button#deletee.btn.btn-danger(type='button',data-dismiss='modal') Delete
+                  button.btn.btn-success(data-dismiss='modal', type='button') Cancel
+          #newAddres.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
+            .modal-dialog
+              .modal-content
+                .modal-headr.modal-header-success
+                  button.close(type="button", data-dismiss="modal" aria-label="Close")
+                    span(aria-hidden="true") ×
+                  h2
+                    .glyphicon.glyphicon-plus
+                    |  Add Company Addres
+                .row 
+                  .modal-body
+                    form#formAddres.form-signin(role="form",name="formAddres")
+                      .col-xs-6.col-md-6
+                        .form-group
+                          .h4 latit
+                          input#latit.form-control(type="text",name="latit", placeholder="latit",autofocus="")
+                        .form-group
+                          .h4 Branch
+                          select#default.form-control(type="text",name="default", placeholder="default",autofocus="")    
+                            option(value="", style='color:grey; display:none;') Please Select Branch
+                            option(value="1",data-subtext='') Main branch
+                            option(value="2",data-subtext='') Subsection 
+                        .form-group#Area
+                          .h4 Area
+                          select#area.form-control(type="text", name="area", autofocus="")
+                            option(value="", style='color:grey; display:none;') Please Select Area
+                        .form-group#School
+                          .h4 School
+                          select#idschool.form-control(type="text",name="idschool", placeholder="School",data-show-subtext='true',data-size='5',data-live-search='true')
+                            option(value="", style='color:grey; display:none;') Please Select Mahalla
+                        .form-group
+                          .h4 Description 
+                          textarea#address_desc(rows='10', cols='78',type="text",name="address_desc", placeholder="Description",autofocus="")
+                      .col-xs-6.col-md-6
+                        .form-group
+                          .h4 longit
+                          input#longit.form-control(type="text",name="longit", placeholder="longit",autofocus="")
+                        .form-group
+                          .h4 City
+                          select#city_idcity.form-control.selectpicker.show-tick(type="text",name="city_idcity",data-show-subtext='true',data-size='5',data-live-search='true')
+                            option(value="", style='color:grey; display:none;') Please Select City
+                            for city in cities
+                              option(value="#{city.idcity}",data-subtext='#{city.name_en}') #{city.name}    
+                        .form-group#Mahalla
+                          .h4 Mahalla
+                          select#mahalla.form-control(type="text",name="mahalla",data-show-subtext='true',data-size='5',data-live-search='true')
+                            option(value="", style='color:grey; display:none;') Please Select Mahalla
+                          input.form-control.text-left(type="hidden",name="idcompany",value="#{id}")
+                .modal-footer
+                  button.btn.btn-danger(data-dismiss='modal', type='button') Cancel
+                  button#save.btn.btn-primary Save Change
+  script(src='/js/jquery-1.11.2.min.js')
+  script(src='/js/bootstrap.min.js')
+  script(src='/metisMenu/dist/metisMenu.min.js')
+  script(src='/js/sb-admin-2.js')
+  script(src='/js/helpers.js')  
+  script(src="/js/jquery.validate.min.js")
+  script(src='/js/bootstrap-select.min.js') 
+  script(src='/js/bootstrap-editable.min.js')
+  script(src='/js/editAddress.js')
+  script(src='/js/CompanyAddress.js')

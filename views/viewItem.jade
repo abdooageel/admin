@@ -1,0 +1,245 @@
+extends layout
+block Dashboard
+  #page-wrapper
+    .container-fluid
+      // Page Heading
+      .row
+        h1  View Item
+          small  View Item
+        ol.breadcrumb
+          li
+            i.fa.fa-dashboard
+            a(href='/adminPage')  Dashboard
+          li.active
+            i.fa.fa-user  Item Manger
+          li.active
+            i.fa  View Item
+        .panel.panel-default.filterable
+          .panel-heading
+            .row
+              .col-xs-3.col-md-2
+                h3.panel-title#title
+                  strong List of Items
+              .pull-right
+                button#space.btn.btn-primary.btn-filter
+                  i.glyphicon.glyphicon-filter
+                  |  Filter of Search
+                a#space.btn.btn-success(href='/addAdmin', role='button',data-toggle='modal')
+                  i.glyphicon.glyphicon-plus
+                  |  New Item
+                button#space.btn.btn.btn-info
+                  i.glyphicon.glyphicon-print
+                  |  Print
+          .table-responsive
+            table.table.table-hover.tablesorter.table-striped
+              thead
+                tr.filters
+                  th
+                    input.form-control.text-center(type='text', placeholder='#Cod', disabled='')
+                  th
+                    input.form-control.text-center(type='text', placeholder='Name', disabled='')
+                  th
+                    input.form-control.text-center(type='text', placeholder='Manufacturers', disabled='')
+                  th
+                    input.form-control.text-center(type='text', placeholder='Model', disabled='')
+                  th.text-center
+                      | Edit
+                  th.text-center
+                    | Trash
+              tfoot
+                tr
+                  th.text-center.header
+                    | #Cod
+                  th.text-center.header 
+                    | Name
+                  th.text-center.header 
+                    | Manufacturers
+                  th.text-center.header 
+                    | Model
+                  th.text-center
+                    | Edit
+                  th.text-center
+                    | Trash
+              tbody
+                tr
+                  td.text-center.cursor 1
+                  td.text-center.cursor Dell 18.5 Inch Monitor
+                  td.text-center.cursor Dell
+                  td.text-center.cursor IN1930
+                  td.text-center
+                    button#enable.btn.btn-info.btn-xs(data-value='', data-placement='top', title='Edit City')
+                      span.glyphicon.glyphicon-pencil
+                  td.text-center
+                    button#delete.btn.btn-danger.btn-xs(href='#delll', data-toggle='modal',value='')
+                      span.glyphicon.glyphicon-trash
+                tr
+                  td.text-center.cursor 2
+                  td.text-center.cursor Intel Core i5
+                  td.text-center.cursor Intel
+                  td.text-center.cursor Core i5
+                  td.text-center
+                    button#enable.btn.btn-info.btn-xs(data-value='', data-placement='top', title='Edit City')
+                      span.glyphicon.glyphicon-pencil
+                  td.text-center
+                    button#delete.btn.btn-danger.btn-xs(href='#delll', data-toggle='modal',value='')
+                      span.glyphicon.glyphicon-trash
+                tr
+                  td.text-center.cursor 3
+                  td.text-center.cursor Gaming Keyboard G510
+                  td.text-center.cursor Logitech
+                  td.text-center.cursor G510
+                  td.text-center
+                    button#enable.btn.btn-info.btn-xs(data-value='', data-placement='top', title='Edit City')
+                      span.glyphicon.glyphicon-pencil
+                  td.text-center
+                    button#delete.btn.btn-danger.btn-xs(href='#delll', data-toggle='modal',value='')
+                      span.glyphicon.glyphicon-trash
+                tr
+                  td.text-center.cursor 1
+                  td.text-center.cursor Dell 18.5 Inch Monitor
+                  td.text-center.cursor Dell
+                  td.text-center.cursor IN1930
+                  td.text-center
+                    button#enable.btn.btn-info.btn-xs(data-value='', data-placement='top', title='Edit City')
+                      span.glyphicon.glyphicon-pencil
+                  td.text-center
+                    button#delete.btn.btn-danger.btn-xs(href='#delll', data-toggle='modal',value='')
+                      span.glyphicon.glyphicon-trash
+                tr
+                  td.text-center.cursor 2
+                  td.text-center.cursor Intel Core i5
+                  td.text-center.cursor Intel
+                  td.text-center.cursor Core i5
+                  td.text-center
+                    button#enable.btn.btn-info.btn-xs(data-value='', data-placement='top', title='Edit City')
+                      span.glyphicon.glyphicon-pencil
+                  td.text-center
+                    button#delete.btn.btn-danger.btn-xs(href='#delll', data-toggle='modal',value='')
+                      span.glyphicon.glyphicon-trash
+                tr
+                  td.text-center.cursor 3
+                  td.text-center.cursor Gaming Keyboard G510
+                  td.text-center.cursor Logitech
+                  td.text-center.cursor G510
+                  td.text-center
+                    button#enable.btn.btn-info.btn-xs(data-value='', data-placement='top', title='Edit City')
+                      span.glyphicon.glyphicon-pencil
+                  td.text-center
+                    button#delete.btn.btn-danger.btn-xs(href='#delll', data-toggle='modal',value='')
+                      span.glyphicon.glyphicon-trash
+            .col-md-12
+              .result.pull-left
+                strong Showing 1 to 6, 5000
+              ul.pagination.pull-right
+                li
+                  a(href='#') «
+                li
+                  a(href='#') 1
+                li
+                  a(href='#') 2
+                li
+                  a(href='#') 3
+                li
+                  a(href='#') 4
+                li
+                  a(href='#') 5
+                li
+                  a(href='#') »
+          // Modal
+          #myModal.modal(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+            .modal-dialog
+              .modal-content
+                .modal-header
+                  button.close(type='button', data-dismiss='modal', aria-hidden='true')
+                    i.text-danger.fa.fa-times
+                  h4#myModalLabel.modal-title
+                    i.text-muted.fa.fa-shopping-cart
+                    strong 02051
+                    |  - Product Name
+                .modal-body
+                  table.pull-left.col-md-8
+                    tbody
+                      tr
+                        td.h6
+                          strong Code
+                        td  
+                        td.h5 02051
+                      tr
+                        td.h6
+                          strong Description
+                        td  
+                        td.h5 Product Description
+                      tr
+                        td.h6
+                          strong Brand / Supplier
+                        td  
+                        td.h5 Product Brand
+                      tr
+                        td.h6
+                          strong Original number
+                        td  
+                        td.h5 0230316
+                      tr
+                        td.h6
+                          strong N.C.M code
+                        td  
+                        td.h5 032165
+                      tr
+                        td.h6
+                          strong Bar code
+                        td  
+                        td.h5 0321649843
+                      tr
+                        td.h6
+                          strong Pcs. by Packaging
+                        td  
+                        td.h5 50
+                      tr
+                        td.h6
+                          strong Minimum
+                        td  
+                        td.h5 50
+                      tr
+                        td.h6
+                          strong Wholesale price
+                        td  
+                        td.h5 R$ 35,00
+                      tr
+                        td.btn-mais-info.text-primary.cursor
+                          i.open_info.fa.fa-plus-square-o
+                          i.open_info.hide.fa.fa-minus-square-o
+                          |  information
+                        td  
+                        td.h5
+                  .col-md-4
+                    img.img-thumbnail(src='http://lorempixel.com/150/150/technics/', alt='teste')
+                  .clearfix
+                  p.open_info.hide
+                    | Lorem ipsum dolor sit amet, consectetur rebates, but do eiusmod tempor and vitality, so that labor and obesity. Over the years, I will come, who will nostrud aliquip advantage from it, but for to exercise, work, school district. Cillum irure travail upon a woman has been criticized in the Duis velit esse dolore eu flee that produces no resultant pleasure.
+                .modal-footer
+                  .text-right.pull-right.col-md-3
+                    | Retail: 
+                    br
+                    span.h3.text-muted
+                      strong  R$50,00 
+                  .text-right.pull-right.col-md-3
+                    | Wholesale:
+                    br
+                    span.h3.text-muted
+                      strong R$35,00
+  script(src='/js/jquery-1.11.2.min.js')
+  script(src='/js/bootstrap.min.js')
+  script(src='/metisMenu/dist/metisMenu.min.js')
+  script(src='/js/sb-admin-2.js')
+  script(src='/js/searchFilter.js')
+  script.
+    $(function () {
+      $('.cursor').on('click', function(event) {
+          event.preventDefault();
+          $('#myModal').modal('show');
+      })
+      
+      $('.btn-mais-info').on('click', function(event) {
+          $( '.open_info' ).toggleClass( "hide" );
+      })   
+    });

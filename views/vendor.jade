@@ -1,0 +1,149 @@
+extends layout
+block Dashboard
+  #page-wrapper
+    .container-fluid
+      // Page Heading
+      .row
+        h1  Admin Manger
+          small  View Admins
+        ol.breadcrumb
+          li
+            i.fa.fa-dashboard
+            a(href='/adminPage')  Dashboard
+          li.active
+            i.fa.fa-user  vendor
+        .row    
+          .col-xs-5.pull-right
+            .form-group      
+              .h5(style ="font-weight: bold; color:#FF9900 ;") Is It Company !
+              input#discount_flag(type='checkbox', name='discount_flag')    
+        .row        
+          .col-md-10.col-md-offset-1
+              form.form-horizontal#Hide1(role='form')
+                .panel.panel-default
+                  .panel-heading
+                    .row
+                      .col-md-5
+                        h2.panel-title 
+                          strong  List of Vendor
+                      .col-md-5
+                        form(role='search')
+                          .input-group
+                            input.form-control(type='text', placeholder='Search by name')
+                            .input-group-btn
+                              button.btn.btn-default(type='submit')
+                                i.glyphicon.glyphicon-search
+                      .col-md-2
+                  .table-responsive
+                    table.table.table-striped.table-condensed
+                      thead
+                        tr
+                          td.text-center
+                            strong Name of Vendor
+                          td.text-center
+                            strong phoun of Vendor
+                          td.text-center
+                            strong View  
+                          td.text-center
+                            strong Edit  
+                          td.text-center
+                            strong Trash 
+                            
+                      tbody#colorTable
+                       
+                          tr(data-id='')
+                            td.text-center 
+                               a.editable.editable-click(id='name_of_vendor', href='#', data-type='text', data-pk='') 
+                            td.text-center
+                              a.editable.editable-click(id='phoun_of_vendor', href='#', data-type='text', data-pk='')
+                            td.text-center
+                              button#view.btn.btn-primary.btn-xs(href='#', data-toggle='modal',value='')
+                                span.glyphicon.glyphicon-eye-open    
+                            td.text-center
+                              button#enable.btn.btn-info.btn-xs(value='' ,data-title='Edit', data-toggle='modal')
+                                span.glyphicon.glyphicon-pencil     
+                            td.text-center
+                              button#delete.btn.btn-danger.btn-xs(href='#devo', data-toggle='modal',value='')
+                                span.glyphicon.glyphicon-trash
+                                  
+                #devo.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
+                  .modal-dialog
+                    .modal-content
+                      .modal-headr.modal-header-danger
+                        p.h1 Sure you want to delete?
+                      .modal-body
+                        p.h2 Are you sure
+                        p 
+                      .modal-footer
+                        button#deletee.btn.btn-danger(type='button',data-dismiss='modal') Delete
+                        button.btn.btn-success(data-dismiss='modal', type='button') Cancel                
+                      
+              form.form-horizontal#Hide(role='form')
+                .panel.panel-default
+                  .panel-heading
+                    .row
+                      .col-md-5
+                        h2.panel-title 
+                          strong  List of Company
+                      .col-md-5
+                        form(role='search')
+                          .input-group
+                            input.form-control(type='text', placeholder='Search by name')
+                            .input-group-btn
+                              button.btn.btn-default(type='submit')
+                                i.glyphicon.glyphicon-search
+                      .col-md-2
+                  .table-responsive
+                    table.table.table-striped.table-condensed
+                      thead
+                        tr
+                          td.text-center
+                            strong Name of Company
+                          td.text-center
+                            strong phoun of Company  
+                          td.text-center
+                            strong View  
+                          td.text-center
+                            strong Edit  
+                          td.text-center
+                            strong Trash 
+                             
+                      tbody#colorTable
+                       
+                          tr(data-id='')
+                            td.text-center 
+                               a.editable.editable-click(id='name_of_Company', href='#', data-type='text', data-pk='') 
+                            td.text-center
+                              a.editable.editable-click(id='phoun_of_Company', href='#', data-type='text', data-pk='') 
+                            td.text-center
+                              button#view.btn.btn-primary.btn-xs(href='#', data-toggle='modal',value='')
+                                span.glyphicon.glyphicon-eye-open   
+                            td.text-center
+                              button#enable.btn.btn-info.btn-xs(value='' ,data-title='Edit', data-toggle='modal')
+                                span.glyphicon.glyphicon-pencil     
+                            td.text-center
+                              button#delete.btn.btn-danger.btn-xs(href='#deco', data-toggle='modal',value='')
+                                span.glyphicon.glyphicon-trash 
+                                
+                #deco.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
+                  .modal-dialog
+                    .modal-content
+                      .modal-headr.modal-header-danger
+                        p.h1 Sure you want to delete?
+                      .modal-body
+                        p.h2 Are you sure
+                        p 
+                      .modal-footer
+                        button#deletee.btn.btn-danger(type='button',data-dismiss='modal') Delete
+                        button.btn.btn-success(data-dismiss='modal', type='button') Cancel                  
+
+  script(src='/js/jquery-1.11.2.min.js')
+  script(src='/js/bootstrap.min.js')
+  script(src='/js/vendorHasPrepaid.js')  
+  script(src='/metisMenu/dist/metisMenu.min.js') 
+  script(src='/js/sb-admin-2.js')
+  script(src='/js/searchFilter.js')
+  script(src='/js/admin.js')
+  script(src="/js/bootstrap-switch.min.js")
+  script(src='/js/vendor.js')  
+  
