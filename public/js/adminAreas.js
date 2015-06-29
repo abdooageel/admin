@@ -101,8 +101,9 @@ $(document).ready(function(){
    }) ;
 
   $('body').on('click','#deletee',function(){
-      $.get('/address/deleteArea/'+$(this).val(),function(result){
-          $("#tbody tr:last-child").remove();
+    var id = $(this).val();
+      $.get('/address/deleteArea/'+id,function(result){
+        $("#tbody tr[data-id|='"+id+"']").remove();
       });
   });
 
