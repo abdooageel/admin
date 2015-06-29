@@ -25,8 +25,9 @@ $(document).ready(function(){
   });
 
   $('body').on('click','#deletee', function(){
-    $.get('/address/deleteCity/'+$(this).val(),function(result){
-      $("#tbody tr:last-child").remove();
+    var id=$(this).val();
+    $.get('/address/deleteCity/'+id,function(result){
+      $("#tbody tr[data-id|='"+id+"']").remove();
     });
   });
 
