@@ -33,21 +33,21 @@ passport.deserializeUser(function(id, done) {
 
 module.exports = function (router) {
   //login here we get the email and password and check if they're conrrect
-  router.post('/loginAdmin', passport.authenticate('local', { failureRedirect: '/admin' }), function(req, res) {
+  router.post('/loginAdmin', passport.authenticate('local', { failureRedirect: '/' }), function(req, res) {
     findAdminById(req.session.passport.user, function (err, admin) {
       req.session.email=admin.email;
       req.session.idadmin=admin.idadmin;
       req.session.level=admin.level;
       req.session.name=admin.name;
-      if(admin.level == 1){
+      // if(admin.level == 1){
         res.redirect('/adminPage');
-      }
+      // }
     });
   });
   // here if an admin wants to logout of the app
   router.get('/logout',ensureAuthenticated, function(req, res) {
     req.session.destroy();
-    res.redirect('/login');
+    res.redirect('/');
   });
   return router;
 }

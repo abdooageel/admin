@@ -63,17 +63,17 @@ $(document).ready(function() {
     $('.showIn').addClass('flipInY');
   });
 
-  $('body').on('click', '#btnLogin', function (e) {
-    e.preventDefault();
-    $('#loginForm').submit();
-  });
-  $("#loginForm").submit(function(e) {
-    var isvalidate=$("#loginForm").valid();
-      if(isvalidate){
-        $.post("/login", $("#loginForm").serializeObject(), function(data, error){
-          console.log(data);
-        });
-      }
-  });
+  // $('body').on('click', '#btnLogin', function (e) {
+  //   e.preventDefault();
+  //   $('#loginForm').submit();
+  // });
+  // $("#loginForm").submit(function(e) {
+  //   var isvalidate=$("#loginForm").valid();
+  //     if(isvalidate){
+  //       $.post("/login", $("#loginForm").serializeObject(), function(data, error){
+  //         console.log(data);
+  //       });
+  //     }
+  // });
 });
 
