@@ -55,7 +55,7 @@ block Dashboard
                 tbody#tbody
                   for city in cities
                     tr(data-id='#{city.idcity}')
-                      td.text-center
+                      td.text-center.arabicFont
                         a.editable.editable-click(id='name#{city.idcity}', href='#', data-type='text', data-pk='#{city.idcity}') #{city.name}
                       td.text-center
                         a.editable.editable-click(id='name_en#{city.idcity}',href='#', data-type='text', data-pk='#{city.idcity}') #{city.name_en}
@@ -65,18 +65,24 @@ block Dashboard
                       td.text-center
                         button#delete.btn.btn-danger.btn-xs(href='#delll', data-toggle='modal',value='#{city.idcity}')
                           span.glyphicon.glyphicon-trash      
-
-        #delll.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
+        #delll.modal.fade.font(tabindex="-1", role="dialog", aria-labelledby="edit", aria-hidden="true")
           .modal-dialog
             .modal-content
-              .modal-headr.modal-header-danger
-                p.h1#Cityid Sure you want to delete
+              .modal-header
+                button.close(type="button", data-dismiss="modal", aria-hidden="true")
+                  span.glyphicon.glyphicon-remove(aria-hidden="true")
+                h4#Heading.modal-title.custom_align Delete City
               .modal-body
-                p.h2 Are you sure
-                p
+                .alert.alert-danger
+                  span.glyphicon.glyphicon-warning-sign
+                  |  Are you sure deletion ?
               .modal-footer
-                button#deletee.btn.btn-danger(type='button',data-dismiss='modal') Delete
-                button.btn.btn-success(data-dismiss='modal', type='button') Cancel
+                button#deletee.btn.btn-success(type="button", data-dismiss="modal")
+                  span.glyphicon.glyphicon-ok-sign
+                  |  Yes
+                button.btn.btn-default(type="button", data-dismiss="modal")
+                  span.glyphicon.glyphicon-remove
+                  |  No
         #newCitie.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
           .modal-dialog
             .modal-content
@@ -100,11 +106,11 @@ block Dashboard
               .modal-footer
                 button.btn.btn-danger(data-dismiss='modal', type='button') Cancel
                 button#sub.btn.btn-primary Save Change 
-  script(src='/js/jquery-1.11.2.min.js')
+  script(src='/js/jquery-2.1.4.min.js')
   script(src='/js/bootstrap.min.js')
+  script(src='/js/metisMenu.min.js')
+  script(src='/js/naga.js')
   script(src="/js/jquery.validate.min.js")
-  script(src='/metisMenu/dist/metisMenu.min.js')
-  script(src='/js/sb-admin-2.js')
   script(src='/js/bootstrap-notify.min.js')
   script(src='/js/adminCities.js')
   script(src='/js/bootstrap-editable.min.js')

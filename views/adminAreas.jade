@@ -68,11 +68,11 @@ block Dashboard
                 // foreach ($order->lineItems as $line) or some such thing here
                 for area in areas
                   tr(data-id='#{area.idarea}')
-                    td.text-center 
+                    td.text-center.arabicFont 
                       a.editable.editable-click(id='name#{area.idarea}', href='#', data-type='text', data-pk='#{area.idarea}') #{area.areaName}
                     td.text-center 
                        a.editable.editable-click(id='name_en#{area.idarea}', href='#', data-type='text', data-pk='#{area.idarea}') #{area.areaName_en}
-                    td.text-center #{area.cityName}
+                    td.text-center.arabicFont #{area.cityName}
                     td.text-center #{area.cityName_en}
                     td.text-center
                       button#enable.btn.btn-info.btn-xs(data-value='#{area.idarea}', data-placement='top', title='Edit City')
@@ -121,15 +121,15 @@ block Dashboard
               .modal-footer
                 button#cancel.btn.btn-danger(data-dismiss='modal',type='submit') Cancel
                 button#save.btn.btn-primary Save Change 
-  script(src='/js/jquery-1.11.2.min.js')
+  script(src='/js/jquery-2.1.4.min.js')
   script(src='/js/bootstrap.min.js')
-  script(src='/metisMenu/dist/metisMenu.min.js')
+  script(src='/js/metisMenu.min.js')
+  script(src='/js/naga.js')
   script(src='/js/bootstrap-notify.min.js')
   script(src="/js/jquery.validate.min.js")
   script(src='/js/bootstrap-select.min.js')
   script(src='/js/bootstrap-editable.min.js')
   script(src='/js/helpers.js')
-  script(src='/js/sb-admin-2.js')
   script(src='/js/searchFilter.js')
   script(src='/js/adminAreas.js')
  

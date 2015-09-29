@@ -28,7 +28,7 @@ block Dashboard
             .form-group
               input.form-control#confirmPassword(name='confirmPassword', placeholder='Confirm Password', type='password')
             .form-group
-              select.form-control#level(name='level',type='text')
+              select.form-control.selectpicker#level(name='level')
                 option(value='', style='color: grey; display:none;') Please Select Level
                 option(value='1') Administration
                 option(value='2') Seller  
@@ -37,11 +37,12 @@ block Dashboard
                 button#btnSubmit.btn.btn-primary.btn-block Registration Admin 
               .col-xs-4.col-md-4
                 button.btn.btn-danger.btn-block(type='reset') Cancel
-  script(src='/js/jquery-1.11.2.min.js')
+  script(src='/js/jquery-2.1.4.min.js')
   script(src='/js/bootstrap.min.js')
-  script(src="/js/jquery.validate.min.js")
-  script(src='/metisMenu/dist/metisMenu.min.js')
-  script(src='/js/sb-admin-2.js')
+  script(src='/js/metisMenu.min.js')
+  script(src='/js/naga.js')
+  script(src='/js/bootstrap-select.min.js')
+  script(src='/js/jquery.validate.min.js')
   script(src='/js/bootstrap-notify.min.js')
   script(src='/js/helpers.js')
   script(src='/js/addAdmin.js')

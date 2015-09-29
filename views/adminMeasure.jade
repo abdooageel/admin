@@ -50,7 +50,7 @@ block Dashboard
                 tbody#MeasureTable
                   for o in measure
                     tr(data-id='#{o.idmeasure}')
-                      td.text-center
+                      td.text-center.arabicFont
                         a.editable.editable-click(id='name#{o.idmeasure}', href='#', data-type='text', data-pk='#{o.idmeasure}') #{o.name}
                       td.text-center
                         a.editable.editable-click(id='name_en#{o.idmeasure}', href='#', data-type='text', data-pk='#{o.idmeasure}') #{o.name_en} 
@@ -107,12 +107,12 @@ block Dashboard
                 .modal-footer
                   button.btn.btn-danger(data-dismiss='modal', type='button') Cancel
                   button#save.btn.btn-primary() Save Change
-  script(src='/js/jquery-1.11.2.min.js')
+  script(src='/js/jquery-2.1.4.min.js')
   script(src='/js/bootstrap.min.js')
   script(src='/js/bootstrap-notify.min.js')
   script(src="/js/jquery.validate.min.js")
-  script(src='/metisMenu/dist/metisMenu.min.js')
-  script(src='/js/sb-admin-2.js')
+  script(src='/js/metisMenu.min.js')
+  script(src='/js/naga.js')
   script(src='/js/bootstrap-editable.min.js')
   script(src='/js/helpers.js')
   script(src='/js/adminMeasure.js')

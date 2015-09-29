@@ -8,20 +8,15 @@ html(lang='en')
     meta(name='description', content='')
     meta(name='author', content='')
     link(href="/css/bootstrap.min.css" rel="stylesheet")
-    link(href="/css/admin_style.css" rel="stylesheet")
-    link(href="/css/bootstrap-editable.css" rel="stylesheet")
-    //- MetisMenu CSS
-    link(href="/metisMenu/dist/metisMenu.min.css" rel="stylesheet")
-    //- Custom CSS
-    link(href="/css/sb-admin-2.css" rel="stylesheet")
-    //- Custom Fonts
-    link(href="/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css") 
-    //- NProgress CSS
-    link(href="/css/nprogress.css" rel="stylesheet")
+    link(href="/css/metisMenu.min.css" rel="stylesheet")
+    link(href="/css/naga.css" rel="stylesheet")
+    link(href="/css/font-awesome.min.css" rel="stylesheet" type="text/css") 
     link(href="/css/animate.min.css" rel="stylesheet")
+    link(href="/css/nprogress.css" rel="stylesheet")
     link(href="/css/bootstrap-select.min.css" rel="stylesheet")
     link(href="/css/bootstrap-switch.min.css" rel="stylesheet")
-    link(rel='stylesheet', href='/css/footer_style.css')
+    link(href="/css/bootstrap-editable.css" rel="stylesheet")
+    link(href="/css/admin_style.css" rel="stylesheet")
   body.animated.fadeIn(style='display: none')
     block content
       block navigation
@@ -204,16 +199,16 @@ html(lang='en')
                     a(href="/adminPage")
                       i.fa.fa-dashboard.fa-fw
                       |  Dashboard
-                  li
-                    a(href="#")
-                      i.fa.fa-user
-                      |  User Manger
-                      span.fa.arrow
-                    ul.nav.nav-second-level
-                      li
-                        a(href="/adminRegUsers") Register User
-                      li
-                        a(href="adminShowUsers") Show User 
+                  //- li
+                  //-   a(href="#")
+                  //-     i.fa.fa-user
+                  //-     |  User Manger
+                  //-     span.fa.arrow
+                  //-   ul.nav.nav-second-level
+                  //-     li
+                  //-       a(href="/adminRegUsers") Register User
+                  //-     li
+                  //-       a(href="adminShowUsers") Show User 
                   li
                     a(href="#")
                       i.glyphicon.glyphicon-map-marker
@@ -319,139 +314,4 @@ html(lang='en')
                                 a(href="#") Third Level Item
                               li
                                 a(href="#") Third Level Item 
-          block Dashboard                                           
-
-      block footer
-        footer#footer
-          // Footer
-          .footer-top
-            .container
-              .row
-                .col-sm-2
-                  .companyinfo
-                    h2
-                      span e
-                      | -shopper
-                    p Lorem ipsum dolor sit amet, consectetur adipisicing elit,sed do eiusmod tempor
-                .col-sm-7
-                  .col-sm-3
-                    .video-gallery.text-center
-                      a(href='#')
-                        .iframe-img
-                          img(src='/img/iframe1.png', alt='')
-                        .overlay-icon
-                          i.fa.fa-play-circle-o
-                      p Circle of Hands
-                      h2 24 DEC 2014
-                  .col-sm-3
-                    .video-gallery.text-center
-                      a(href='#')
-                        .iframe-img
-                          img(src='/img/iframe2.png', alt='')
-                        .overlay-icon
-                          i.fa.fa-play-circle-o
-                      p Circle of Hands
-                      h2 24 DEC 2014
-                  .col-sm-3
-                    .video-gallery.text-center
-                      a(href='#')
-                        .iframe-img
-                          img(src='/img/iframe3.png', alt='')
-                        .overlay-icon
-                          i.fa.fa-play-circle-o
-                      p Circle of Hands
-                      h2 24 DEC 2014
-                  .col-sm-3
-                    .video-gallery.text-center
-                      a(href='#')
-                        .iframe-img
-                          img(src='/img/iframe4.png', alt='')
-                        .overlay-icon
-                          i.fa.fa-play-circle-o
-                      p Circle of Hands
-                      h2 24 DEC 2014
-                .col-sm-3
-                  .address
-                    img(src='/img/map.png', alt='')
-                    p 505 S Atlantic Ave Virginia Beach, VA(Virginia)
-          .footer-widget
-            .container
-              .row
-                .col-sm-2
-                  .single-widget
-                    h2 Service
-                    ul.nav.nav-pills.nav-stacked
-                      li
-                        a(href='') Online Help
-                      li
-                        a(href='') Contact Us
-                      li
-                        a(href='') Order Status
-                      li
-                        a(href='') Change Location
-                      li
-                        a(href='') FAQ’s
-                .col-md-2
-                  .single-widget
-                    h2 Quock Shop
-                    ul.nav.nav-pills.nav-stacked
-                      li
-                        a(href='') T-Shirt
-                      li
-                        a(href='') Mens
-                      li
-                        a(href='') Womens
-                      li
-                        a(href='') Gift Cards
-                      li
-                        a(href='') Shoes
-                .col-md-2
-                  .single-widget
-                    h2 Policies
-                    ul.nav.nav-pills.nav-stacked
-                      li
-                        a(href='') Terms of Use
-                      li
-                        a(href='') Privecy Policy
-                      li
-                        a(href='') Refund Policy
-                      li
-                        a(href='') Billing System
-                      li
-                        a(href='') Ticket System
-                .col-md-2
-                  .single-widget
-                    h2 About Shopper
-                    ul.nav.nav-pills.nav-stacked
-                      li
-                        a(href='') Company Information
-                      li
-                        a(href='') Careers
-                      li
-                        a(href='') Store Location
-                      li
-                        a(href='') Affillate Program
-                      li
-                        a(href='') Copyright
-                .col-md-3.col-md-offset-1
-                  .single-widget
-                    h2 About Shopper
-                    ul.nav.nav-pills.nav-stacked
-                      li
-                        a(href='') Company Information
-                      li
-                        a(href='') Careers
-                      li
-                        a(href='') Store Location
-                      li
-                        a(href='') Affillate Program
-                      li
-                        a(href='') Copyright
-          .footer-bottom
-            .container
-              .row
-                p.pull-left Copyright © 2015 Nagaaa. All rights reserved.
-                p.pull-right
-                  | Designed by 
-                  span
-                    a(target='_blank', href='http://www.naga.ly') Naga Co.
+          block Dashboard

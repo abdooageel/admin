@@ -14,57 +14,55 @@ block Dashboard
             li.active
               i.fa  Company
       .panel.panel-default
-            .panel-heading
-              .row
-                .col-md-3
-                  h2.panel-title 
-                    strong  List of Company 
-                .col-md-5
-                  form(role='search')
-                    .input-group
-                      input.form-control(type='text', placeholder='Search by name')
-                      .input-group-btn
-                        button.btn.btn-default(type='submit')
-                          i.glyphicon.glyphicon-search
-                .col-md-2 
-                  a.btn.btn-success(href='#newCompany', role='button',data-toggle='modal')
-                    span.glyphicon.glyphicon-plus
-                    |  Add Company 
-                .col-md-2  
-            .panel-body
-              .table-responsive
-                table.table.table-condensed
-                  thead
-                    tr
-                      td
-                        strong Name in Arabic
-                      td
-                        strong Name in English
-                      td.text-right
-                        strong View
-                      td.text-right
-                        strong Addresses
-                      td.text-right
-                        strong Seller  
-                      td.text-right
-                        strong Trash 
-                  tbody#tbody
-                  for i in company
-                    tr
-                      td #{i.name}
-                      td #{i.name_en}
-                      td.text-right
-                        button#View.btn.btn-primary.btn-xs(value='#{i.idcompany}')
-                          span.glyphicon.glyphicon-eye-open
-                      td.text-right
-                        button#Addresses.btn.btn-info.btn-xs(value='#{i.idcompany}')
-                          span.glyphicon.glyphicon-map-marker
-                      td.text-right
-                        button#seller.btn.btn-warning.btn-xs(value='#{i.idcompany}')
-                          span.glyphicon.glyphicon-user      
-                      td.text-right 
-                        button#delete.btn.btn-danger.btn-xs(value='#{i.idcompany}',href='#del', data-toggle='modal')
-                          span.glyphicon.glyphicon-trash      
+        .panel-heading
+          .row
+            .pull-left(style="margin-left: 10px;")
+              h2.panel-title 
+                strong  List of Company 
+            .col-md-8
+              form(role='search')
+                .input-group
+                  input.form-control(type='text', placeholder='Search by name')
+                  .input-group-btn
+                    button.btn.btn-default(type='submit')
+                      i.glyphicon.glyphicon-search
+            .pull-right(style="margin-right: 10px;")
+              a.btn.btn-success(href='#newCompany', role='button',data-toggle='modal')
+                span.glyphicon.glyphicon-plus
+                |  Add Company
+        .table-responsive
+          table.table.table-condensed
+            thead
+              tr
+                td
+                  strong Name in Arabic
+                td
+                  strong Name in English
+                td.text-right
+                  strong View
+                td.text-right
+                  strong Addresses
+                td.text-right
+                  strong Seller  
+                td.text-right
+                  strong Trash 
+            tbody#tbody
+            for i in company
+              tr
+                td.arabicFont #{i.name}
+                td #{i.name_en}
+                td.text-right
+                  button#View.btn.btn-primary.btn-xs(value='#{i.idcompany}')
+                    span.glyphicon.glyphicon-eye-open
+                td.text-right
+                  button#Addresses.btn.btn-info.btn-xs(value='#{i.idcompany}')
+                    span.glyphicon.glyphicon-map-marker
+                td.text-right
+                  button#seller.btn.btn-warning.btn-xs(value='#{i.idcompany}')
+                    span.glyphicon.glyphicon-user      
+                td.text-right 
+                  button#delete.btn.btn-danger.btn-xs(value='#{i.idcompany}',href='#del', data-toggle='modal')
+                    span.glyphicon.glyphicon-trash      
           #del.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
             .modal-dialog
               .modal-content
@@ -112,10 +110,10 @@ block Dashboard
                 .modal-footer
                   button.btn.btn-danger(data-dismiss='modal') Cancel
                   button#save.btn.btn-primary() Save Change
-  script(src='/js/jquery-1.11.2.min.js')
+  script(src='/js/jquery-2.1.4.min.js')
   script(src='/js/bootstrap.min.js')
-  script(src='/metisMenu/dist/metisMenu.min.js')
-  script(src='/js/sb-admin-2.js') 
+  script(src='/js/metisMenu.min.js')
+  script(src='/js/naga.js') 
   script(src='/js/bootstrap-notify.min.js')
   script(src='/js/helpers.js')
   script(src="/js/jquery.validate.min.js")

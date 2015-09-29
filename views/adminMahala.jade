@@ -68,11 +68,11 @@ block Dashboard
                 // foreach ($order->lineItems as $line) or some such thing here
                 for mahalas in mahala
                   tr(data-id='#{mahalas.idmahalla}')
-                    td.text-center
+                    td.text-center.arabicFont
                       a.editable.editable-click(id='name#{mahalas.idmahalla}', href='#', data-type='text', data-pk='#{mahalas.idmahalla}')  #{mahalas.mahallaName}
                     td.text-center 
                       a.editable.editable-click(id='name_en#{mahalas.idmahalla}', href='#', data-type='text', data-pk='#{mahalas.idmahalla}')  #{mahalas.mahallaName_en}
-                    td.text-center #{mahalas.areaName}
+                    td.text-center.arabicFont #{mahalas.areaName}
                     td.text-center #{mahalas.areaName_en}
                     td.text-center
                       button#enable.btn.btn-info.btn-xs(value='#{mahalas.idmahalla}', data-toggle='modal', data-placement='top', title='Edit Mahala')
@@ -135,14 +135,14 @@ block Dashboard
                 .modal-footer
                   button.btn.btn-danger(data-dismiss='modal', type='button') Cancel
                   button#save.btn.btn-primary() Save Change      
-  script(src='/js/jquery-1.11.2.min.js')
+  script(src='/js/jquery-2.1.4.min.js')
   script(src='/js/bootstrap.min.js')
   script(src='/js/bootstrap-notify.min.js')
   script(src='/js/bootstrap-select.min.js')
   script(src="/js/jquery.validate.min.js")
-  script(src='/metisMenu/dist/metisMenu.min.js')
+  script(src='/js/metisMenu.min.js')
   script(src='/js/bootstrap-editable.min.js')
   script(src='/js/helpers.js')
-  script(src='/js/sb-admin-2.js') 
+  script(src='/js/naga.js') 
   script(src='/js/adminMahalla.js')
   script(src='/js/searchFilter.js') 

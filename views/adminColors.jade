@@ -46,7 +46,7 @@ block Dashboard
             tbody#colorTable
               for i in color
                 tr(data-id='#{i.idcolor}')
-                  td.text-center 
+                  td.text-center.arabicFont
                      a.editable.editable-click(id='name#{i.idcolor}', href='#', data-type='text', data-pk='#{i.idcolor}') #{i.name}  
                   td.text-center
                     a.editable.editable-click(id='name_en#{i.idcolor}', href='#', data-type='text', data-pk='#{i.idcolor}') #{i.name_en}  
@@ -55,8 +55,7 @@ block Dashboard
                       span.glyphicon.glyphicon-pencil     
                   td.text-center
                     button#delete.btn.btn-danger.btn-xs(href='#ded', data-toggle='modal',value='#{i.idcolor}')
-                      span.glyphicon.glyphicon-trash   
-                      
+                      span.glyphicon.glyphicon-trash
         #ded.modal.fade(data-width='760',role="dialog",aria-labelledby="myModalLabel", tabindex='-1',aria-hidden="true")
           .modal-dialog
             .modal-content
@@ -91,15 +90,15 @@ block Dashboard
           .modal-footer
             button.btn.btn-danger(data-dismiss='modal', type='button') Cancel
             button#save.btn.btn-primary() Save Change 
-  script(src='/js/jquery-1.11.2.min.js')
+  script(src='/js/jquery-2.1.4.min.js')
   script(src='/js/bootstrap.min.js')
   script(src="/js/jquery.validate.min.js")
   script(src='/js/bootstrap-notify.min.js')
   script(src='/js/editColor.js')
   script(src='/js/bootstrap-editable.min.js')
-  script(src='/metisMenu/dist/metisMenu.min.js')
+  script(src='/js/metisMenu.min.js')
   script(src='/js/nprogress.js')
-  script(src='/js/sb-admin-2.js')
+  script(src='/js/naga.js')
   script(src='/js/helpers.js')  
   script(src='/js/adminColor.js')
   

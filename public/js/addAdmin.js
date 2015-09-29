@@ -1,5 +1,6 @@
 $(document).ready(function(){
   $("#addAdmin").validate({
+    ignore: ':not(select:hidden, input:visible, textarea:visible)',
     rules:{
       name:{
         required: true,
@@ -54,11 +55,15 @@ $(document).ready(function(){
         required: "Please choose the admin validity !",
       },
     },
+    errorPlacement: function (error, element) {
+      if ($(element).is('select')) {
+          element.next().after(error);
+      } else {
+          error.insertAfter(element);
+      }
+    },
     highlight: function(element) {
       $(element).closest('.form-group').addClass('has-error');
-      $(element).addClass('animated shake').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
-          $(this).removeClass('animated shake');
-      });
     },
     unhighlight: function(element) {
       $(element).closest('.form-group').removeClass('has-error');
